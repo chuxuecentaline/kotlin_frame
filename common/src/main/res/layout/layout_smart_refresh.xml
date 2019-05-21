@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/smartRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:srlDisableContentWhenLoading="true"
+    app:srlDisableContentWhenRefresh="true"
+    app:srlEnableAutoLoadMore="true"
+    app:srlEnableLoadMore="true"
+    app:srlEnableLoadMoreWhenContentNotFull="false"
+    app:srlEnableScrollContentWhenLoaded="false"
+    app:srlEnableScrollContentWhenRefreshed="false"
+    app:srlFooterHeight="@dimen/spacing_50">
+
+    <com.scwang.smartrefresh.header.DeliveryHeader
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <com.scwang.smartrefresh.layout.footer.BallPulseFooter
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_50" />
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

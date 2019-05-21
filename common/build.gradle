@@ -1,0 +1,89 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode build_versions.version_code
+        versionName build_versions.version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        if(releaseApi.toBoolean()){
+            buildConfigField("String", "BASE_URL","\"http://mysystem.aoruola.net.cn/\"")
+        }else{
+            buildConfigField("String", "BASE_URL", "\"http://www.daobc.cn:204/\"")
+        }
+        if(releaseApi.toBoolean()){
+            buildConfigField("String", "BASE_IMAGE_URL","\"http://image.mine.rsaurora.com.cn/\"")
+        }else{
+            buildConfigField("String", "BASE_IMAGE_URL", "\"http://www.daobc.cn:9122/\"")
+        }
+        buildConfigField("long", "READ_TIME_OUT", "30000")
+        buildConfigField("long", "CONNECT_TIME_OUT", "30000")
+        buildConfigField("String", "LOGGER_TAG", "\"PRETTY_LOGGER\"")
+        buildConfigField("String", "DB_NAME", "\"mysystem.db\"")
+        resConfigs "zh-rCN", "xhdpi"
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api deps.constraint_layout
+    api deps.support.app_compat
+    api deps.support.recyclerview
+    api deps.support.cardview
+    api deps.support.design
+    api deps.room.runtime
+    api deps.room.rxjava2
+    api deps.lifecycle.runtime
+    api deps.lifecycle.extensions
+    api deps.paging_ktx
+    api deps.kotlin.stdlib
+    api deps.rxjava2
+    api deps.rx_android
+    api deps.retrofit.runtime
+    api deps.retrofit.gson
+    api deps.retrofit.adapter
+    api deps.okhttp_logging_interceptor
+    api deps.glide.runtime
+    api deps.smartRefresh.runtime
+    api deps.smartRefresh.head
+    api deps.arouter.api
+
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.atsl.rules
+    androidTestImplementation deps.arch_core.testing
+    androidTestImplementation deps.espresso.core
+    androidTestImplementation deps.junit
+    androidTestImplementation deps.retrofit.mock
+    androidTestImplementation deps.mockito.core
+    androidTestImplementation deps.mockito.android
+
+    testImplementation deps.junit
+    testImplementation deps.retrofit.mock
+    testImplementation deps.arch_core.testing
+    testImplementation deps.mockito.core
+
+
+
+
+}
