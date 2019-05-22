@@ -3,6 +3,7 @@ package com.cherish.app.ui.listdemo
 import android.content.Context
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -18,7 +19,7 @@ import com.cherish.common.rxJava.ApiThrowable
 import com.cherish.common.rxJava.ApplyObserverTransform
 import com.cherish.common.rxJava.OnRequestNext
 import com.cherish.common.ui.SmartRefreshFragment
-import com.cherish.common.utils.ToastUtil
+import com.cherish.common.utils.ToastUtil.Companion.short
 
 /**
  * @author: cherish
@@ -42,7 +43,7 @@ class ListFragment : SmartRefreshFragment<ListWrapper.ListVisitable>() {
     override fun bindLiveData() {
         viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
         viewModel.getError().observe(this, Observer<String> { t ->
-            t?.let { ToastUtil.short(it) }
+            t?.let { short(it) }
             error()
         })
     }
@@ -93,7 +94,7 @@ class ListFragment : SmartRefreshFragment<ListWrapper.ListVisitable>() {
 
 
     override fun onItemClick(view: View, position: Int) {
-        ToastUtil.short(position.toString())
+        short(position.toString())
     }
 
 }

@@ -59,6 +59,7 @@ versions.moshi = "1.8.0"
 versions.arouter_api = "1.5.0"
 versions.arouter_compiler = "1.2.2"
 
+
 def deps = [:]
 
 def support = [:]
@@ -82,9 +83,9 @@ room.rxjava2 = "androidx.room:room-rxjava2:$versions.room"
 room.testing = "androidx.room:room-testing:$versions.room"
 deps.room = room
 
-def arouter=[:]
+def arouter = [:]
 arouter.api = "com.alibaba:arouter-api:$versions.arouter_api"
-arouter.compiler= "com.alibaba:arouter-compiler:$versions.arouter_compiler"
+arouter.compiler = "com.alibaba:arouter-compiler:$versions.arouter_compiler"
 deps.arouter = arouter
 
 def lifecycle = [:]

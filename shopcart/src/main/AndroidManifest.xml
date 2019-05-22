@@ -3,9 +3,7 @@
     package="com.cherish.shopcart">
 
     <application>
-        <activity
-            android:name=".ui.CartActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ui.CartActivity"></activity>
 
     </application>
 

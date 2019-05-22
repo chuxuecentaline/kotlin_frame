@@ -13,10 +13,9 @@ kapt {
     }
 }
 android {
-
     compileSdkVersion build_versions.target_sdk
-    buildToolsVersion build_versions.build_tools
     defaultConfig {
+
         if (moduleDev.toBoolean()) {
             applicationId "com.cherish.shopcart"
         }
@@ -27,6 +26,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
+
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
@@ -40,6 +40,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -57,12 +58,12 @@ android {
             }
         }
     }
-
 }
 
 dependencies {
 
     kapt deps.arouter.compiler
+    kapt deps.glide.compiler
 
     implementation project(path: ':common')
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'

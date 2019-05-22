@@ -1,4 +1,4 @@
-package com.cherish.centre.data.model
+package com.cherish.centre.data.entity
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository

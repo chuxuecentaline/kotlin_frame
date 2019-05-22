@@ -66,6 +66,7 @@ android {
 dependencies {
 
     kapt deps.arouter.compiler
+    kapt deps.glide.compiler
 
     implementation project(path: ':common')
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'

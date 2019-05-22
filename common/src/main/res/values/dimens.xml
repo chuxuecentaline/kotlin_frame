@@ -111,6 +111,7 @@
     <dimen name="spacing_3">3dp</dimen>
     <dimen name="spacing_2">2dp</dimen>
     <dimen name="spacing_1">1dp</dimen>
+    <dimen name="spacing_0">0dp</dimen>
 
 
 </resources>

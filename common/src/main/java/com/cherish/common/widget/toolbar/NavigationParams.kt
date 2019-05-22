@@ -1,5 +1,7 @@
 package com.cherish.common.widget.toolbar
 
+import android.view.ViewGroup
+import android.view.ViewParent
 import androidx.appcompat.app.AppCompatActivity
 
 /**
@@ -8,6 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
  * @date: 2019/5/21 17:18
  * @version: 2.0
  */
-class NavigationParams(private var activity: AppCompatActivity) {
-    fun getActivity() = activity
+open class NavigationParams(private var parent: ViewGroup) {
+    private lateinit var mActivity: AppCompatActivity
+
+   fun setActivity(activity: AppCompatActivity){
+       mActivity=activity
+   }
+
+    fun getActivity() = mActivity
+    fun getParent() = parent
+
 }

@@ -10,6 +10,6 @@ import android.view.View
  */
 interface NavigationBarImpl<T> {
     fun bindLayoutId(): Int
-    fun applyParams()
+    fun applyParams(view:View)
     fun navigationCallback(view:View,params:T)
 }

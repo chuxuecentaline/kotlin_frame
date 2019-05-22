@@ -19,10 +19,10 @@ object IntentExtra {
     /**
      * 合约广场路由path
      */
-    const val SCROLLING:String="/square/ScrollingActivity"
+    const val SCROLLING: String = "/square/ScrollingActivity"
 
     /**
      * 购物车路由path
      */
-    const val CART:String="/cart/CartActivity"
+    const val CART: String = "/cart/CartActivity"
 }

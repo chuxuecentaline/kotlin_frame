@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AutoApplication</string>
     <string name="title_activity_cart">CartActivity</string>
+    <string name="shopping_car">购物车</string>
 </resources>

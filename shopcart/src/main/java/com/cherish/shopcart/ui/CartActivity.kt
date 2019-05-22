@@ -2,7 +2,6 @@ package com.cherish.shopcart.ui
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity;
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.cherish.common.ui.BaseActivity
 import com.cherish.common.utils.IntentExtra
@@ -15,7 +14,7 @@ class CartActivity : BaseActivity() {
     override fun setContentId() = R.layout.activity_cart
 
     override fun bindData() {
-        setSupportActionBar(toolbar)
+
     }
 
     override fun injectListener() {

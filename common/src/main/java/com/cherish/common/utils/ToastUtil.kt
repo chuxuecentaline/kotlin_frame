@@ -6,7 +6,7 @@ import com.cherish.common.ui.BaseActivity.Companion.mContext
 
 /**
  * @author: cherish
- * @description: toast 工具类
+ * @description: toast 工具类 使用 kotlin 扩展函数
  * @date: 2019/5/20 9:52
  * @version: 2.0
  */
@@ -26,6 +26,7 @@ class ToastUtil {
             Toast.makeText(mContext, tip, Toast.LENGTH_LONG).show()
         }
     }
+
 
 
 }

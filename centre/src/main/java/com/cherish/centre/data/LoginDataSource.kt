@@ -1,6 +1,6 @@
 package com.cherish.centre.data
 
-import com.cherish.centre.data.model.LoggedInUser
+import com.cherish.centre.data.entity.LoggedInUser
 import java.io.IOException
 
 /**
