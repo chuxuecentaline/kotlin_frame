@@ -86,6 +86,7 @@ class ListFragment : SmartRefreshFragment<ListWrapper.ListVisitable>() {
 
                     override fun fail(apiThrowable: ApiThrowable) {
                         error()
+                        setIndex()
                     }
 
                 })

@@ -15,10 +15,8 @@ class MainActivity : BaseActivity() {
     override fun setContentId() = R.layout.activity_main
 
     override fun bindData() {
-
         updateFragment(0)
     }
-
 
     override fun injectListener() {
         bottomNavigationView.setOnNavigationItemSelectedListener {

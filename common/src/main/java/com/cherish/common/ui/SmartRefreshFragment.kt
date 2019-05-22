@@ -137,6 +137,17 @@ abstract class SmartRefreshFragment<T>(var page: Int = 0) : BaseFragment() {
     abstract fun onItemClick(view: View, position: Int)
 
     /**
+     * 获取当前的页数
+     */
+    fun setIndex() {
+        if (index > page) {
+            index--
+        } else
+            index = page
+
+    }
+
+    /**
      * 分割线
      */
     abstract fun onItemDecoration(context: Context): RecyclerView.ItemDecoration
