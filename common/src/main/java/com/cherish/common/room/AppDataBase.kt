@@ -16,21 +16,19 @@ import com.cherish.common.room.dao.UserDao
  *
  */
 
-@Database(entities = [UserEntity::class],version = 1,exportSchema = false)
-abstract class AppDataBase : RoomDatabase() {
-
-    abstract fun useDao(): UserDao
-
+@Database(
+        entities = [UserEntity::class],
+        version = 1,
+        exportSchema = false
+)
+abstract class AppDataBase:RoomDatabase() {
     companion object {
 
-        /**
-         * 获取AppDatabase
-         */
         lateinit var instance: AppDataBase
-        private set
 
         fun init(context: Context) {
-      //      instance = Room.databaseBuilder(context.applicationContext, AppDataBase::class.java, BuildConfig.DB_NAME).build()
+            instance = Room.databaseBuilder(context, AppDataBase::class.java, "room.db").fallbackToDestructiveMigration().build()
         }
     }
+    abstract fun useDao(): UserDao
 }

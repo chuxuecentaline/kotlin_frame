@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-
 kapt {
     arguments {
         arg("AROUTER_MODULE_NAME", project.getName())
@@ -40,9 +39,8 @@ android {
 
 dependencies {
 
-    kapt deps.room.compiler
-    kapt deps.glide.compiler
     kapt deps.arouter.compiler
+
     if (moduleDev.toBoolean()) {
         implementation project(path: ':common')
     } else {

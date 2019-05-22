@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
@@ -47,6 +47,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    kapt deps.room.compiler
+    kapt deps.glide.compiler
+
     api deps.constraint_layout
     api deps.support.app_compat
     api deps.support.recyclerview
@@ -82,8 +85,5 @@ dependencies {
     testImplementation deps.retrofit.mock
     testImplementation deps.arch_core.testing
     testImplementation deps.mockito.core
-
-
-
 
 }
