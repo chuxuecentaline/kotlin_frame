@@ -17,12 +17,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="?attr/colorPrimary"
-            android:elevation="@dimen/spacing_0"
+            app:elevation="@dimen/spacing_0"
             android:minHeight="?attr/actionBarSize"
             app:contentInsetStart="0dp"
             app:contentInsetStartWithNavigation="0dp"
             app:navigationIcon="@drawable/ic_chevron_left_black"
             app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:title=" "
             app:titleTextColor="@android:color/transparent">
 

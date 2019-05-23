@@ -1,13 +1,11 @@
 package com.cherish.app.ui.square
 
-import androidx.lifecycle.ViewModelProviders
 import android.view.View
+import androidx.lifecycle.ViewModelProviders
 import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.alibaba.android.arouter.launcher.ARouter
-
 import com.cherish.app.R
-import com.cherish.app.ui.cart.CartViewModel
 import com.cherish.common.ui.BaseFragment
 import com.cherish.common.utils.IntentExtra
 import kotlinx.android.synthetic.main.centre_fragment.*

@@ -1,21 +1,35 @@
 package com.cherish.square.ui
 
-import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import android.view.Menu
 import android.view.MenuItem
+import androidx.core.content.ContextCompat
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.cherish.common.ui.BaseActivity
 import com.cherish.common.utils.IntentExtra
 import com.cherish.square.R
+import com.google.android.material.snackbar.Snackbar
+import com.jaeger.library.StatusBarUtil
 import kotlinx.android.synthetic.main.activity_scrolling.*
 
 @Route(path = IntentExtra.SCROLLING)
 class ScrollingActivity : BaseActivity() {
+
+    var list = arrayListOf(
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558610004143&di=53af0e2c92a0b518be0669c7052ee327&imgtype=0&src=http%3A%2F%2Fbaiducdn.pig66.com%2Fuploadfile%2F2017%2F0511%2F20170511074941292.jpg", "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=395856847,2865233529&fm=26&gp=0.jpg",
+            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558610043019&di=655f1186ce0f7498aeddc1a5d840080d&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201701%2F29%2F20170129220732_TVhrm.thumb.700_0.jpeg", "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558610061492&di=858852fbcb7083eaa72b8dc19823da0e&imgtype=0&src=http%3A%2F%2Fupload.mnw.cn%2F2017%2F0814%2F1502698443566.jpg", "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558610061491&di=82484be46fe876d2948be1e103a3f082&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201701%2F29%2F20170129220718_3nkUi.jpeg")
+
     override fun setContentId() = R.layout.activity_scrolling
 
     override fun bindData() {
+  /*      StatusBarUtil.setColor(this, Color.TRANSPARENT)
+        StatusBarUtil.setDarkMode(this@ScrollingActivity)*/
+        StatusBarUtil.setTranslucentForImageView(this, view_need_offset)
+        customHeadView.setData(list)
+        setSupportActionBar(toolbar)
+        supportActionBar.apply {
+            this?.setHomeButtonEnabled(true)
+        }
 
     }
 

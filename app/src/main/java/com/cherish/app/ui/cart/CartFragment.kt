@@ -20,7 +20,6 @@ class CartFragment : BaseFragment() {
         btn_click.setOnClickListener {
             ARouter.getInstance()
                     .build(IntentExtra.CART)
-                   // .withTransition(R.anim.slide_in_left, R.anim.slide_out_right)
                     .navigation(activity)
         }
     }

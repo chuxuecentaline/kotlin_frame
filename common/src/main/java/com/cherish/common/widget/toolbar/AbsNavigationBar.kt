@@ -74,8 +74,8 @@ abstract class AbsNavigationBar<P : NavigationParams>(var params: P) : Navigatio
     /**
      * Set status bar translucent
      */
-    fun setTranslucent(statusBarAlpha: Int) {
-        StatusBarUtil.setTranslucent(params.getActivity(), statusBarAlpha)
+    fun setTranslucent() {
+        StatusBarUtil.setTranslucent(params.getActivity())
     }
 
     open class Build(val activity: AppCompatActivity) {

@@ -1,5 +1,6 @@
 package com.cherish.common.picengine.glide
 
+import android.content.Context
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
@@ -30,6 +31,10 @@ class SimpleImageLoad<E> : IImageLoad<E> {
         options = RequestOptions()
     }
 
+    constructor(content: Context) {
+        glide = Glide.with(content)
+        options = RequestOptions()
+    }
     override fun load(view: ImageView, source: E?, placeholder: Int, error: Int, fallback: Int, circleCrop: Boolean, crossFade: Boolean) {
         var options = when {
             circleCrop -> {

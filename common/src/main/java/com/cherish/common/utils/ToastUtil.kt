@@ -2,7 +2,6 @@ package com.cherish.common.utils
 
 import android.content.Context
 import android.widget.Toast
-import com.cherish.common.ui.BaseActivity.Companion.mContext
 
 /**
  * @author: cherish

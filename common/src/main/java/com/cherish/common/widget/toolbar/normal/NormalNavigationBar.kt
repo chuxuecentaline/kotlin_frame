@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.Toolbar
 import com.cherish.common.R
 import com.cherish.common.widget.toolbar.AbsNavigationBar
+import com.jaeger.library.StatusBarUtil
 
 /**
  * @author: cherish
@@ -33,9 +34,11 @@ class NormalNavigationBar(params: NormalNavigationParams? = null) : AbsNavigatio
         atv_title.apply {
             text = params.mTitle
         }
-        mToolbar.setBackgroundResource(params.mBackgroundColor)
-        setStatusColor(params.mColor)
+        setTranslucent()
         setTitleColor(params.mTitleColor, atv_title)
+        setStatusColor(params.mColor)
+        mToolbar.setBackgroundResource(params.mBackgroundColor)
+        setThemeMode(params.mLight)
 
     }
 
@@ -97,6 +100,14 @@ class NormalNavigationBar(params: NormalNavigationParams? = null) : AbsNavigatio
          */
         fun setStatusColor(color: Int): Build {
             params.mColor = color
+            return this
+        }
+
+        /**
+         * 设置状态栏透明
+         */
+        fun setTranslucent(isTranslucent: Boolean): Build {
+            params.mIsTranslucent = isTranslucent
             return this
         }
 

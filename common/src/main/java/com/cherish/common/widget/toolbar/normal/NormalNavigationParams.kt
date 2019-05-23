@@ -13,6 +13,6 @@ import com.cherish.common.widget.toolbar.NavigationParams
  */
 class NormalNavigationParams(mParent: ViewGroup,
                              var mBackResId: Int? = null, var mTitle: String? = null,
-                             var mLight: Boolean = true, var mShow: Boolean = true,
+                             var mLight: Boolean = false, var mShow: Boolean = true,
                              var mColor: Int = Color.GRAY, var mTitleColor: Int = Color.GRAY,
-                             var mBackgroundColor:Int= R.color.white) : NavigationParams(mParent)
+                             var mBackgroundColor: Int = R.color.white, var mIsTranslucent: Boolean = false) : NavigationParams(mParent)

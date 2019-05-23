@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import com.cherish.app.R
 import com.cherish.common.ui.BaseActivity
 import com.cherish.common.widget.toolbar.normal.NormalNavigationBar
+import com.jaeger.library.StatusBarUtil
 import kotlinx.android.synthetic.main.activity_list2.*
 
 class ListActivity : BaseActivity() {
@@ -16,6 +17,7 @@ class ListActivity : BaseActivity() {
 
     override fun bindData() {
         NormalNavigationBar.Build(this, ll_root).setTitle("demo")
+                .setTranslucent(true)
                 .setBackIcon(R.drawable.ic_chevron_left_white)
                 .setTitleColor(Color.WHITE)
                 .setStatusColor(ContextCompat.getColor(this,R.color.colorPrimary))
