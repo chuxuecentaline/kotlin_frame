@@ -41,6 +41,10 @@ android {
         }
     }
 
+    lintOptions {
+        abortOnError false
+        warning 'InvalidPackage'
+    }
 
 }
 
@@ -91,5 +95,5 @@ dependencies {
     api 'com.airbnb.android:lottie:2.5.1'
     api 'com.aliyun.ams:alicloud-android-hotfix:3.2.8'
     api 'com.squareup.moshi:moshi-kotlin:1.8.0'
-
+    api 'me.jessyan:autosize:1.1.2'
 }

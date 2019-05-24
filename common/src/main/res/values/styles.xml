@@ -9,7 +9,7 @@
         <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
         <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowIsTranslucent">false</item>
     </style>
@@ -45,5 +45,10 @@
         <item name="popupTheme">@style/OverflowMenuStyle</item>
         <item name="contentInsetStart">0dp</item>
         <item name="contentInsetStartWithNavigation">0dp</item>
+    </style>
+
+    <!--透过状态栏-->
+    <style name="AppTheme.StatusBar">
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 </resources>

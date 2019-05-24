@@ -18,7 +18,7 @@
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="@android:color/transparent"
+            app:contentScrim="?attr/colorPrimary"
             app:titleEnabled="false"
             android:animateLayoutChanges="true"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"

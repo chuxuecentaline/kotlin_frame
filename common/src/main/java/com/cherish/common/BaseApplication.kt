@@ -7,6 +7,8 @@ import com.cherish.common.api.ApiCreate
 import com.cherish.common.room.AppDataBase
 import com.cherish.common.utils.ToastUtil
 import com.taobao.sophix.SophixManager
+import me.jessyan.autosize.AutoSizeConfig
+import me.jessyan.autosize.unit.Subunits
 
 /**
  * @author: cherish
@@ -40,7 +42,7 @@ abstract class BaseApplication : Application() {
         ARouter.init(this)
 
         initConfigure(debugMode())
-
+        initAutoSize()
     }
 
     /**
@@ -49,4 +51,17 @@ abstract class BaseApplication : Application() {
     abstract fun initConfigure(debugMode: Boolean)
 
     private fun debugMode() = BuildConfig.DEBUG
+    /**
+     * 自动适配
+     */
+    private fun initAutoSize() {
+        AutoSizeConfig.getInstance()
+                .setBaseOnWidth(true)
+                .unitsManager
+                .setSupportDP(false)
+                .setSupportSP(false)
+                .supportSubunits = Subunits.MM
+    }
+
+
 }
