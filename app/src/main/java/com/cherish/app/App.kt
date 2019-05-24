@@ -1,24 +1,12 @@
 package com.cherish.app
 
-import android.app.Application
-
-import com.cherish.common.api.ApiCreate
-import com.cherish.common.utils.ToastUtil
-import com.squareup.leakcanary.LeakCanary
-import com.scwang.smartrefresh.layout.constant.SpinnerStyle
-import com.scwang.smartrefresh.layout.footer.ClassicsFooter
-import com.scwang.smartrefresh.layout.api.RefreshLayout
-import com.scwang.smartrefresh.layout.api.RefreshFooter
-import com.scwang.smartrefresh.layout.SmartRefreshLayout
-import com.scwang.smartrefresh.layout.header.ClassicsHeader
-import android.R
-import android.R.attr.colorPrimary
-import android.content.Context
-import com.scwang.smartrefresh.layout.api.RefreshHeader
-import android.R.attr.colorPrimary
-import com.alibaba.android.arouter.launcher.ARouter
 import com.cherish.common.BaseApplication
-import com.cherish.common.room.AppDataBase
+import com.squareup.leakcanary.LeakCanary
+import com.taobao.sophix.SophixManager
+import io.reactivex.Observable
+import io.reactivex.ObservableOnSubscribe
+import io.reactivex.schedulers.Schedulers
+import java.lang.Exception
 
 /**
  * @author: cherish
@@ -31,6 +19,16 @@ class App : BaseApplication() {
         if (debugMode) {
             LeakCanary.install(this)
         }
+
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        try {
+            SophixManager.getInstance().queryAndLoadNewPatch()
+        }catch (e:Exception){
+        }
+
 
     }
 

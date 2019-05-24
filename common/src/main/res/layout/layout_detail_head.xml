@@ -22,7 +22,7 @@
         android:paddingTop="@dimen/spacing_2"
         android:paddingRight="@dimen/spacing_12"
         android:paddingBottom="@dimen/spacing_2"
-        android:layout_marginBottom="@dimen/spacing_40"
+        android:layout_marginBottom="@dimen/spacing_20"
         android:textColor="@color/white"
         android:textSize="@dimen/font_12"
         tools:text="1/3" />

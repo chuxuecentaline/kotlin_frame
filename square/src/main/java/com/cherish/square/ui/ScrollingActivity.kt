@@ -12,6 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.jaeger.library.StatusBarUtil
 import kotlinx.android.synthetic.main.activity_scrolling.*
 
+
 @Route(path = IntentExtra.SCROLLING)
 class ScrollingActivity : BaseActivity() {
 
@@ -22,9 +23,7 @@ class ScrollingActivity : BaseActivity() {
     override fun setContentId() = R.layout.activity_scrolling
 
     override fun bindData() {
-  /*      StatusBarUtil.setColor(this, Color.TRANSPARENT)
-        StatusBarUtil.setDarkMode(this@ScrollingActivity)*/
-        StatusBarUtil.setTranslucentForImageView(this, view_need_offset)
+
         customHeadView.setData(list)
         setSupportActionBar(toolbar)
         supportActionBar.apply {

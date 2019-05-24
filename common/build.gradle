@@ -31,7 +31,6 @@ android {
         ndk {
             abiFilters 'armeabi-v7a'
         }
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -48,6 +47,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0'
     kapt deps.room.compiler
 
     api deps.constraint_layout
@@ -64,8 +64,8 @@ dependencies {
     api deps.rxjava2
     api deps.rx_android
     api deps.retrofit.runtime
-    api deps.retrofit.gson
     api deps.retrofit.adapter
+    api deps.retrofit.adapter_moshi
     api deps.okhttp_logging_interceptor
     api deps.glide.runtime
     api deps.smartRefresh.runtime
@@ -89,4 +89,7 @@ dependencies {
     api 'com.jakewharton.rxbinding3:rxbinding-material:3.0.0-alpha2'
     api 'com.jaeger.statusbarutil:library:1.5.1'
     api 'com.airbnb.android:lottie:2.5.1'
+    api 'com.aliyun.ams:alicloud-android-hotfix:3.2.8'
+    api 'com.squareup.moshi:moshi-kotlin:1.8.0'
+
 }

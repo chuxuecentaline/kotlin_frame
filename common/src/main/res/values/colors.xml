@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#E92942</color>
-    <color name="colorPrimaryDark">#E92942</color>
+    <color name="colorPrimaryDark">#80000000</color>
     <color name="colorAccent">#F7105C</color>
     <color name="white">#FFFFFF</color>
     <color name="color_purple">#9C27B0</color>
     <color name="color_999999">#999999</color>
     <color name="color_333333">#333333</color>
     <color name="color_half_transparent">#8C000000</color>
+    <color name="colorStatusBar">#757575</color>
+    <color name="transparent">#00000000</color>
 </resources>

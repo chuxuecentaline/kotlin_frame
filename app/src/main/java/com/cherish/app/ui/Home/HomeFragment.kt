@@ -52,6 +52,7 @@ class HomeFragment : BaseFragment() {
                     .setAction("Action", null).show()
         } }
         SimpleImageLoad<String>(requireActivity()).load(iv_bg,"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558419894267&di=d04afdd1fce989f18534f335dbd1f316&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F02%2F20170802172403_YVvPG.thumb.700_0.gif")
+    // atv_context.text="sophix update two ah"
 
 
 

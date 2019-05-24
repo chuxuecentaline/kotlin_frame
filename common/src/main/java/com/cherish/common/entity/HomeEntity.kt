@@ -1,11 +1,14 @@
 package com.cherish.common.entity
 
+import com.squareup.moshi.JsonClass
+
 /**
  * @author: cherish
  * @description: 测试
  * @date: 2019/5/8 14:21
  * @version: 2.0
  */
+@JsonClass(generateAdapter = true)
 data class HomeEntity(val avatar_url: String,
                       val events_url: String,
                       val followers_url: String,

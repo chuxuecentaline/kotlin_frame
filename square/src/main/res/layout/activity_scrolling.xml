@@ -1,66 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
+    tools:context=".ui.ScrollingActivity">
 
-
-    <com.cherish.common.widget.view.head.CustomHeadView
-        android:id="@+id/customHeadView"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_280" />
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:expanded="false">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/view_need_offset"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.ScrollingActivity">
-
-
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/app_bar"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/spacing_280"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:layout_height="match_parent"
+            app:contentScrim="@android:color/transparent"
+            app:titleEnabled="false"
+            android:animateLayoutChanges="true"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:toolbarId="@+id/toolbar">
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/toolbar_layout"
+            <com.cherish.common.widget.view.head.CustomHeadView
+                android:id="@+id/customHeadView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:contentScrim="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-                app:toolbarId="@+id/toolbar">
+                android:layout_height="@dimen/spacing_280" />
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="@android:color/transparent"
-                    app:contentInsetStart="0dp"
-                    app:contentInsetStartWithNavigation="0dp"
-                    app:elevation="@dimen/spacing_0"
-                    app:layout_collapseMode="pin"
-                    app:navigationIcon="@drawable/ic_chevron_left_white"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                    app:title=" "
-                    app:titleTextColor="@android:color/transparent" />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@id/toolbar"
+                style="@style/ToolbarStyle"
+                app:layout_collapseMode="pin"
+                android:layout_marginTop="@dimen/spacing_22"
+                app:title=" "
+                app:navigationIcon="@drawable/ic_chevron_left_white" />
 
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-        </com.google.android.material.appbar.AppBarLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <include layout="@layout/content_scrolling" />
+    <include layout="@layout/content_scrolling" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_dialog_email" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

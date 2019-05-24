@@ -64,7 +64,6 @@ android {
 }
 
 dependencies {
-
     kapt deps.arouter.compiler
     kapt deps.glide.compiler
 

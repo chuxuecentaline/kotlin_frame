@@ -7,6 +7,7 @@ import com.cherish.app.ui.centre.CentreFragment
 import com.cherish.app.ui.cart.CartFragment
 import com.cherish.app.ui.square.SquareFragment
 import com.cherish.common.ui.BaseActivity
+import com.taobao.sophix.SophixManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
