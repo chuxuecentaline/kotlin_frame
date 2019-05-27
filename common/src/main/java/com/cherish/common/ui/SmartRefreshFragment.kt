@@ -25,6 +25,7 @@ abstract class SmartRefreshFragment<T>(var page: Int = 0) : BaseFragment() {
     private var index = page
     private lateinit var mAdapter: AbsBaseAdapter<T, AbsWrapper.BaseViewHolder>
     private lateinit var smoothScrollHelper: SmoothScrollHelper
+    var isDataLoaded: Boolean = false
 
     override fun setLayoutId() = R.layout.layout_smart_refresh
 
@@ -63,8 +64,14 @@ abstract class SmartRefreshFragment<T>(var page: Int = 0) : BaseFragment() {
             })
 
         }
+        if (userVisibleHint) {
+            if (!isDataLoaded) {
+                isDataLoaded = true
+                smartRefreshLayout.autoRefresh()
 
-        smartRefreshLayout.autoRefresh()
+            }
+        }
+
     }
 
     /**

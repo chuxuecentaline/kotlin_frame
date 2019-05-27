@@ -25,4 +25,9 @@ object IntentExtra {
      * 购物车路由path
      */
     const val CART: String = "/cart/CartActivity"
+
+    /**
+     *登录拦截器
+     */
+    const val LOGIN_INTERCEPTOR: String = "login_interceptor"
 }

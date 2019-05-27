@@ -16,16 +16,36 @@ class ToastUtil {
             mContext = context
         }
 
+        /**
+         * toast 内容
+         */
         open fun short(tip: String) {
             Toast.makeText(mContext, tip, Toast.LENGTH_SHORT)
                     .show()
         }
 
+        /**
+         * 吐司 资源文件 文本
+         */
+        open fun short(tip: Int) {
+            Toast.makeText(mContext, tip, Toast.LENGTH_SHORT)
+                    .show()
+        }
+
+        /**
+         * 长吐司 内容
+         */
         open fun long(tip: String) {
             Toast.makeText(mContext, tip, Toast.LENGTH_LONG).show()
         }
-    }
 
+        /**
+         * 长吐司 资源文件 文本
+         */
+        open fun long(tip: Int) {
+            Toast.makeText(mContext, tip, Toast.LENGTH_LONG).show()
+        }
+    }
 
 
 }

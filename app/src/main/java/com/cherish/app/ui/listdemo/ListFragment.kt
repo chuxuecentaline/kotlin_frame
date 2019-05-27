@@ -3,14 +3,11 @@ package com.cherish.app.ui.listdemo
 import android.content.Context
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
 import com.cherish.common.api.ApiCreate
 import com.cherish.common.api.ConfigApi
-import com.cherish.common.entity.ListData
 import com.cherish.common.entity.ListEntity
 import com.cherish.common.recycler.AbsBaseAdapter
 import com.cherish.common.recycler.AbsWrapper
