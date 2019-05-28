@@ -1,9 +1,12 @@
 package com.cherish.common
 
 import android.app.Application
+import android.content.res.Configuration
+import android.content.res.Resources
 import androidx.room.Room
 import com.alibaba.android.arouter.launcher.ARouter
 import com.cherish.common.api.ApiCreate
+import com.cherish.common.picengine.glide.OkHttpClient4Glide
 import com.cherish.common.room.AppDataBase
 import com.cherish.common.utils.ToastUtil
 import com.taobao.sophix.SophixManager
@@ -40,7 +43,7 @@ abstract class BaseApplication : Application() {
             ARouter.openDebug()      // Turn on debugging mode (If you are running in InstantRun mode, you must turn on debug mode! Online version needs to be closed, otherwise there is asecurity risk)
         }
         ARouter.init(this)
-
+        OkHttpClient4Glide.init()
         initConfigure(debugMode())
         initAutoSize()
     }
@@ -61,6 +64,22 @@ abstract class BaseApplication : Application() {
                 .setSupportDP(false)
                 .setSupportSP(false)
                 .supportSubunits = Subunits.MM
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration?) {
+        if (newConfig?.fontScale != 1.toFloat())//非默认值
+            resources
+        super.onConfigurationChanged(newConfig)
+    }
+
+    override fun getResources(): Resources {
+        val res = super.getResources()
+        if (res.configuration.fontScale != 1.toFloat()) {//非默认值
+            val newConfig = Configuration()
+            newConfig.setToDefaults()//设置默认值
+            res.updateConfiguration(newConfig, res.displayMetrics)
+        }
+        return res
     }
 
 

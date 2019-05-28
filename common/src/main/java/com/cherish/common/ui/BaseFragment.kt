@@ -4,19 +4,22 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.annotation.LayoutRes
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+import com.cherish.common.widget.dialog.LottieDialogFragment
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseFragment : Fragment() {
+    private val lottieDialogFragment: LottieDialogFragment by lazy {
+        LottieDialogFragment()
+    }
     /**
      * 订阅管理
      */
@@ -25,15 +28,13 @@ abstract class BaseFragment : Fragment() {
     }
     private lateinit var mViewModel: BaseViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(setLayoutId(), container, false)
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+            inflater.inflate(setLayoutId(), container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initConfigure(view)
         bindLiveData()
+        initConfigure(view)
     }
 
 
@@ -51,12 +52,13 @@ abstract class BaseFragment : Fragment() {
     /**
      * 设置布局
      */
+    @LayoutRes
     abstract fun setLayoutId(): Int
 
     /**
      * 初始化配置
      */
-    abstract fun initConfigure(view: View?)
+    protected abstract fun initConfigure(view: View)
 
     /**
      * 绑定life
@@ -99,10 +101,11 @@ abstract class BaseFragment : Fragment() {
     protected fun controlKeyboard(isShow: Boolean) {
         try {
 
-            val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager ?: return
+            val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    ?: return
             val currentFocus = activity?.currentFocus
             if (isShow) {
-                if (currentFocus!= null) {
+                if (currentFocus != null) {
                     //有焦点打开
                     imm.showSoftInput(currentFocus, 0)
                 } else {
@@ -123,4 +126,24 @@ abstract class BaseFragment : Fragment() {
         }
 
     }
+
+    /**
+     * 是否还在执行
+     */
+    protected fun isLoading() = lottieDialogFragment.isVisible
+
+    /**
+     * cancelable 点击外部是否消失
+     */
+    protected fun loadingDialog(cancelable: Boolean = true) {
+        lottieDialogFragment.apply {
+            isCancelable = cancelable
+            show(this@BaseFragment.requireFragmentManager(), LottieDialogFragment.TAG)
+        }
+    }
+
+    fun dismissDialog() {
+        lottieDialogFragment.dismiss()
+    }
+
 }

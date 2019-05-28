@@ -12,21 +12,23 @@ class CentreFragment : BaseFragment() {
 
     private lateinit var viewModel: CentreViewModel
 
-    override fun setLayoutId() = R.layout.centre_fragment
-
-    override fun initConfigure(view: View?) {
-        viewModel = ViewModelProviders.of(this).get(CentreViewModel::class.java)
-        btn_click.setOnClickListener {
-            ARouter.getInstance().build(IntentExtra.LOGIN).navigation()
-        }
+    companion object {
+        fun newInstance() = CentreFragment()
+        const val TAG = "AccountFragment"
     }
+
+
+    override fun setLayoutId() = R.layout.centre_fragment
 
     override fun bindLiveData() {
     }
 
-    companion object {
-        fun newInstance() = CentreFragment()
-        const val TAG = "AccountFragment"
+
+    override fun initConfigure(view: View) {
+        viewModel = ViewModelProviders.of(this).get(CentreViewModel::class.java)
+        btn_click.setOnClickListener {
+            ARouter.getInstance().build(IntentExtra.LOGIN).navigation()
+        }
     }
 
 

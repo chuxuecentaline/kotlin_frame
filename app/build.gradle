@@ -9,6 +9,14 @@ kapt {
     }
 }
 android {
+    signingConfigs {
+        debug {
+            storeFile file('../debug.keystore')
+            storePassword 'android'
+            keyPassword 'android'
+            keyAlias = 'androiddebugkey'
+        }
+    }
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
     defaultConfig {
@@ -41,7 +49,6 @@ android {
 dependencies {
 
     kapt deps.arouter.compiler
-    kapt deps.glide.compiler
 
     if (moduleDev.toBoolean()) {
         implementation project(path: ':common')

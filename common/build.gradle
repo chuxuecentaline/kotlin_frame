@@ -13,14 +13,14 @@ android {
         versionName build_versions.version_name
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        if(releaseApi.toBoolean()){
-            buildConfigField("String", "BASE_URL","\"http://mysystem.aoruola.net.cn/\"")
-        }else{
+        if (releaseApi.toBoolean()) {
+            buildConfigField("String", "BASE_URL", "\"http://mysystem.aoruola.net.cn/\"")
+        } else {
             buildConfigField("String", "BASE_URL", "\"http://www.daobc.cn:204/\"")
         }
-        if(releaseApi.toBoolean()){
-            buildConfigField("String", "BASE_IMAGE_URL","\"http://image.mine.rsaurora.com.cn/\"")
-        }else{
+        if (releaseApi.toBoolean()) {
+            buildConfigField("String", "BASE_IMAGE_URL", "\"http://image.mine.rsaurora.com.cn/\"")
+        } else {
             buildConfigField("String", "BASE_IMAGE_URL", "\"http://www.daobc.cn:9122/\"")
         }
         buildConfigField("long", "READ_TIME_OUT", "30000")
@@ -51,8 +51,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0'
+    kapt deps.moshi.codegen
     kapt deps.room.compiler
+    kapt deps.glide.compiler
 
     api deps.constraint_layout
     api deps.support.app_compat
@@ -72,9 +73,14 @@ dependencies {
     api deps.retrofit.adapter_moshi
     api deps.okhttp_logging_interceptor
     api deps.glide.runtime
+    api deps.glide.integration
     api deps.smartRefresh.runtime
     api deps.smartRefresh.head
     api deps.arouter.api
+    api deps.rxbinding.runtime
+    api deps.rxbinding.appcompat
+    api deps.hotfix.runtime
+    api deps.rxpermissions.runtime
 
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.atsl.rules
@@ -90,13 +96,11 @@ dependencies {
     testImplementation deps.arch_core.testing
     testImplementation deps.mockito.core
 
-    api 'com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha2'
     api 'com.jaeger.statusbarutil:library:1.5.1'//状态栏
     api 'com.airbnb.android:lottie:2.5.1'// 预加载闪屏动画
-    api 'com.aliyun.ams:alicloud-android-hotfix:3.2.8'//热更新
     api 'com.squareup.moshi:moshi-kotlin:1.8.0'//moshi 数据解析器相对于Gson 来说更高效
     api 'me.jessyan:autosize:1.1.2'//布局适配
     api 'com.youth.banner:banner:1.4.10'//轮播图
     api 'com.github.hackware1993:MagicIndicator:1.5.0'//ViewPager 指示器
-    api 'com.github.tbruyelle:rxpermissions:0.10.2'//权限
+    api 'com.zhihu.android:matisse:0.5.2-beta4'//选择图片
 }

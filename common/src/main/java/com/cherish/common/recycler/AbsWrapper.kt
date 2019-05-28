@@ -6,6 +6,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import com.cherish.common.R
 import com.cherish.common.entity.ListData
 import com.cherish.common.picengine.glide.SimpleImageLoad
+import kotlinx.android.synthetic.main.item_error.view.*
 
 /**
  * @author: cherish
@@ -19,6 +20,7 @@ open class Support(val imageLoad: SimpleImageLoad<String>, val callBack: ListCal
 open interface Visitable {
     fun layoutId(): Int
     fun uid(): String
+    fun getTips():String?
 }
 
 open class AbsWrapper<R> {
@@ -65,6 +67,7 @@ open class AbsWrapper<R> {
             itemView.setOnClickListener {
                 support.callBack.reload()
             }
+            itemView.atv_tips.text=data.getTips()
         }
     }
 

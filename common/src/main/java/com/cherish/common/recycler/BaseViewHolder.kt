@@ -16,7 +16,7 @@ abstract class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemV
 
     abstract fun findView(itemView: View)
 
-    abstract fun bindTo(t: T)
+    abstract fun bindTo(bean: T)
 
 
 }

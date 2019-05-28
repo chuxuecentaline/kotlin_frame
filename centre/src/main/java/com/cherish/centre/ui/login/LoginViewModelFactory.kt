@@ -2,8 +2,8 @@ package com.cherish.centre.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.cherish.centre.data.LoginDataSource
-import com.cherish.centre.data.LoginRepository
+import com.cherish.centre.po.LoginDataSource
+import com.cherish.centre.po.LoginRepository
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

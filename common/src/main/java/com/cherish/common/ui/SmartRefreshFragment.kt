@@ -29,7 +29,7 @@ abstract class SmartRefreshFragment<T>(var page: Int = 0) : BaseFragment() {
 
     override fun setLayoutId() = R.layout.layout_smart_refresh
 
-    override fun initConfigure(view: View?) {
+    override fun initConfigure(view: View) {
         smoothScrollHelper = SmoothScrollHelper(requireActivity(), recyclerView, LinearLayoutManager(requireActivity()))
         mAdapter = setAdapter(Support(SimpleImageLoad(requireActivity()), object : ListCallback {
             override fun reload() {
@@ -101,9 +101,9 @@ abstract class SmartRefreshFragment<T>(var page: Int = 0) : BaseFragment() {
     /**
      * 网络错误
      */
-    open fun error() {
+    open fun error(errorTip: String? = "未知异常") {
         if (index == page) {
-            mAdapter.error()
+            mAdapter.error(errorTip)
             finishRefresh()
         } else {
             finishMore()

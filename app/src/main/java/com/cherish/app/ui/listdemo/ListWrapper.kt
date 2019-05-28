@@ -58,27 +58,28 @@ class ListWrapper : AbsWrapper<ListData>() {
         override fun layoutId() = ITEM_TEXT
         override fun uid() = entity.id
         override fun entity(): ListData? = entity
+        override fun getTips()=""
     }
 
     open class Loading : ListVisitable {
         override fun layoutId() = AdapterItemConst.ITEM_LOADING
         override fun uid() = "Loading"
         override fun entity(): ListData? = null
-
+        override fun getTips()=""
     }
 
-    open class Error : ListVisitable {
+    open class Error(var errorTip: String?) : ListVisitable {
         override fun layoutId() = AdapterItemConst.ITEM_ERROR
-        override fun uid() =  "Error"
+        override fun uid() = "Error"
         override fun entity(): ListData? = null
-
+        override fun getTips()=errorTip
     }
 
     open class Empty : ListVisitable {
         override fun layoutId() = AdapterItemConst.ITEM_EMPTY
-        override fun uid() ="Empty"
+        override fun uid() = "Empty"
         override fun entity(): ListData? = null
-
+        override fun getTips()=""
     }
 
 }

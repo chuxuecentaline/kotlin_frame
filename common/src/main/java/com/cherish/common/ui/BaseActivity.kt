@@ -1,6 +1,7 @@
 package com.cherish.common.ui
 
 import android.app.Activity
+import android.app.ProgressDialog.show
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -10,13 +11,18 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
+import androidx.annotation.LayoutRes
 import androidx.core.content.ContextCompat
 import com.cherish.common.R
+import com.cherish.common.widget.dialog.LottieDialogFragment
 import com.jaeger.library.StatusBarUtil
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseActivity : AppCompatActivity() {
 
+    private val lottieDialogFragment: LottieDialogFragment by lazy {
+        LottieDialogFragment()
+    }
     /**
      * 管理订阅
      */
@@ -42,6 +48,7 @@ abstract class BaseActivity : AppCompatActivity() {
     /**
      * 布局
      */
+    @LayoutRes
     abstract fun setContentId(): Int
 
     /**
@@ -114,7 +121,7 @@ abstract class BaseActivity : AppCompatActivity() {
         try {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager ?: return
             if (isShow) {
-                if (currentFocus!= null) {
+                if (currentFocus != null) {
                     //有焦点打开
                     imm.showSoftInput(currentFocus, 0)
                 } else {
@@ -134,6 +141,25 @@ abstract class BaseActivity : AppCompatActivity() {
             e.printStackTrace()
         }
 
+    }
+
+    /**
+     * 是否还在执行
+     */
+    protected fun isLoading() = lottieDialogFragment.isVisible
+
+    /**
+     * cancelable 点击外部是否消失
+     */
+    protected fun loadingDialog(cancelable: Boolean = true) {
+        lottieDialogFragment.apply {
+            isCancelable = cancelable
+            show(supportFragmentManager, LottieDialogFragment.TAG)
+        }
+    }
+
+    fun dismissDialog() {
+        lottieDialogFragment.dismiss()
     }
 
 

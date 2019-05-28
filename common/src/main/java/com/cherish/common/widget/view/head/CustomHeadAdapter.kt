@@ -4,8 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.recyclerview.widget.RecyclerView
-import com.cherish.app.Home.HomeViewHolder
 import com.cherish.common.R
 import com.cherish.common.picengine.glide.SimpleImageLoad
 import com.cherish.common.recycler.BaseViewHolder
@@ -19,19 +17,14 @@ import com.cherish.common.recycler.SimpleBaseAdapter
  */
 class CustomHeadAdapter(data: ArrayList<String>) : SimpleBaseAdapter<String, CustomHeadViewHolder>(data) {
 
-
     override fun initViewHolder(parent: ViewGroup, viewType: Int): CustomHeadViewHolder {
         val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_image, parent, false)
         return CustomHeadViewHolder(view)
     }
 
-    override fun convertHolder(holder: CustomHeadViewHolder, position: Int) {
-      holder.bindTo(mList[position])
+    override fun onBindItemClickListener(itemView: View, position: Int, bean: String) {
     }
-
-
-
 
 }
 

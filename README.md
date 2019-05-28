@@ -6,13 +6,13 @@
             3、本框架不得使用butterKnife findViewById ,除自定义控件外，kotlin  支持直接引用xml 文件的id 即可
             4、studio 统一版本 3.4
             5、如果由moduleDev=true 切换到false，不能成功编译app ,需要clean project 即可正常
+
  1.在gradle.properties 文件
    moduleDev  false 关闭模块化开发，所有module 组成一个整体的app
               true  除common 模块其他module 均可单独运行
 
    releaseApi true  正式环境的API
               false  测试环境的API
-
 
 
 
@@ -32,7 +32,7 @@
   3. SmartRefreshFragment 封装 预加载页面 空页面 网络错误页面的 相关逻辑，使用适配器的模式，getItemViewType 返回不同的布局id ,实现多布局
 
 
-  该框架目前依然在优化阶段，如果大家有一些更好的想法，可以相互交流，尽早让这个版本成熟化，规范化
+  该框架目前依然在优化阶段，如果大家有一些更好的想法，可以相互交流，尽早让这个版本成熟化，规范化。
 
 
 

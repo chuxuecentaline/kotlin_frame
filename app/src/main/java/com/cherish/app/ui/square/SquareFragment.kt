@@ -14,12 +14,20 @@ class SquareFragment : BaseFragment() {
 
     private lateinit var viewModel: SquareViewModel
 
+    companion object {
+        fun newInstance() = SquareFragment()
+        const val TAG = "ReOrderFragment"
+    }
+
     override fun setLayoutId() = R.layout.square_fragment
 
-    override fun initConfigure(view: View?) {
+    override fun bindLiveData() {
+    }
+
+    override fun initConfigure(view: View) {
         viewModel = ViewModelProviders.of(this).get(SquareViewModel::class.java)
         btn_click.setOnClickListener {
-            ARouter.getInstance().build(IntentExtra.SCROLLING).navigation(activity, object :NavigationCallback{
+            ARouter.getInstance().build(IntentExtra.SCROLLING).navigation(activity, object : NavigationCallback {
                 override fun onLost(postcard: Postcard?) {
                 }
 
@@ -39,12 +47,5 @@ class SquareFragment : BaseFragment() {
         }
     }
 
-    override fun bindLiveData() {
-    }
-
-    companion object {
-        fun newInstance() = SquareFragment()
-        const val TAG = "ReOrderFragment"
-    }
 
 }

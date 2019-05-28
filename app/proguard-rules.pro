@@ -131,7 +131,6 @@
 -keep public class com.tencent.bugly.**{*;}
 -keep class android.support.**{*;}
 ## matisse
--dontwarn com.squareup.picasso.**
 -keep public class com.alibaba.android.arouter.routes.**{*;}
 -keep public class com.alibaba.android.arouter.facade.**{*;}
 -keep class * implements com.alibaba.android.arouter.facade.template.ISyringe{*;}
@@ -162,3 +161,4 @@
 }
 # 如果不使用android.support.annotation.Keep则需加上此行
 #-keep class com.cherish.app.SophixStubApplication$RealApplicationStub
+

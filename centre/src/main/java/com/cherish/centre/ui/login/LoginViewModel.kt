@@ -2,13 +2,11 @@ package com.cherish.centre.ui.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import com.cherish.centre.data.LoginRepository
-import com.cherish.centre.data.Result
+import com.cherish.centre.po.LoginRepository
+import com.cherish.centre.po.Result
 
 import com.cherish.centre.R
-import com.cherish.common.recycler.AbsWrapper
 import com.cherish.common.ui.BaseViewModel
 
 class LoginViewModel(private val loginRepository: LoginRepository) : BaseViewModel(){

@@ -41,7 +41,7 @@ class ListFragment : SmartRefreshFragment<ListWrapper.ListVisitable>() {
         viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
         viewModel.getError().observe(this, Observer<String> { t ->
             t?.let { short(it) }
-            error()
+            error(t)
         })
     }
 
@@ -82,7 +82,7 @@ class ListFragment : SmartRefreshFragment<ListWrapper.ListVisitable>() {
                     }
 
                     override fun fail(apiThrowable: ApiThrowable) {
-                        error()
+                        error(apiThrowable.message)
                         setIndex()
                     }
 
@@ -90,7 +90,9 @@ class ListFragment : SmartRefreshFragment<ListWrapper.ListVisitable>() {
 
     }
 
-
+    /**
+     * 点击事件
+     */
     override fun onItemClick(view: View, position: Int) {
         short(position.toString())
     }

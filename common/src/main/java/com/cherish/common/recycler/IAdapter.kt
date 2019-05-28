@@ -13,5 +13,5 @@ interface IAdapter<E> {
 
     fun empty()
 
-    fun error()
+    fun error(errorTip: String?)
 }

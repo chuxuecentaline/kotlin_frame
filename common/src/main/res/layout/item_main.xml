@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/atv_content"
+    tools:text="p"
+    android:textSize="@dimen/spacing_14"
+    android:textColor="@color/color_333333"
+    android:layout_height="@dimen/spacing_40"
+    android:paddingLeft="@dimen/spacing_10"
+    android:gravity="center|left" />

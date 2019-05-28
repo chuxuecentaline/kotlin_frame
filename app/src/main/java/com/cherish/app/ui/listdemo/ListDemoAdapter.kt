@@ -17,7 +17,7 @@ class ListDemoAdapter(private var support: Support) : AbsBaseAdapter<ListWrapper
 
     override fun listLoading() = ListWrapper.Loading()
 
-    override fun listError() = ListWrapper.Error()
+    override fun listError(errorTip: String?) = ListWrapper.Error(errorTip)
 
     override fun listEmpty() = ListWrapper.Empty()
 

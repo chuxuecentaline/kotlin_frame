@@ -13,12 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 abstract class AbsBaseAdapter<E, VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>(), IAdapter<E> {
     val mList = ArrayList<E>()
     private val loading = listLoading()
-    private val error = listError()
     private val empty = listEmpty()
 
     abstract fun listLoading(): E
 
-    abstract fun listError(): E
+    abstract fun listError(errorTip: String?): E
 
     abstract fun listEmpty(): E
 
@@ -58,9 +57,9 @@ abstract class AbsBaseAdapter<E, VH : RecyclerView.ViewHolder> : RecyclerView.Ad
     /**
      * 网络错误
      */
-    override fun error() {
+    override fun error(errorTip: String?) {
         val temp = ArrayList<E>(1)
-        temp.add(error)
+        temp.add(listError(errorTip))
         apply(temp)
     }
 

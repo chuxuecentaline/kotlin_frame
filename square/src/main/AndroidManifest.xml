@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name=".ui.ScrollingActivity"
+            android:name=".ui.demo.ScrollingActivity"
             android:theme="@style/AppTheme.StatusBar"></activity>
     </application>
 
