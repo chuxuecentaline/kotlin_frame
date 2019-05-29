@@ -1,7 +1,5 @@
 package com.cherish.shopcart.ui.demo
 
-import android.app.Activity
-import android.content.Intent
 import androidx.core.content.ContextCompat
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.cherish.common.ui.BaseActivity
@@ -13,7 +11,12 @@ import kotlinx.android.synthetic.main.activity_cart.*
 
 @Route(path = IntentExtra.Arouter.CART)
 class CartActivity : BaseActivity() {
+
     override fun setContentId() = R.layout.activity_cart
+
+    override fun initConfig() {
+
+    }
 
     override fun bindData() {
         NormalNavigationBar.Build(this, coordinator).setTitle("title")

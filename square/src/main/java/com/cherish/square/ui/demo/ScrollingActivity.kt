@@ -19,6 +19,10 @@ class ScrollingActivity : BaseActivity() {
 
     override fun setContentId() = R.layout.activity_scrolling
 
+    override fun initConfig() {
+
+    }
+
     override fun bindData() {
 
         customHeadView.setData(list)

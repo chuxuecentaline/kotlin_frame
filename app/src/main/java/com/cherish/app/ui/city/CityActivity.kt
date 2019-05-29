@@ -10,7 +10,13 @@ import com.cherish.common.ui.BaseActivity
  * @version: 2.0
  */
 class CityActivity : BaseActivity() {
+
     override fun setContentId() = R.layout.activity_city
+
+    override fun initConfig() {
+
+    }
+
     override fun bindData() {
 
     }

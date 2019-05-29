@@ -18,7 +18,7 @@ import com.cherish.common.utils.IntentExtra
  */
 @Interceptor(priority = 1,name = IntentExtra.Arouter.LOGIN_INTERCEPTOR)
 class LoginInterceptor:IInterceptor{
-    lateinit var mContext:Context
+    private lateinit var mContext:Context
 
     override fun init(context: Context?) {
         mContext= context!!

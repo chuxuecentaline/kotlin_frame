@@ -1,21 +1,17 @@
 package com.cherish.common.ui
 
 import android.app.Activity
-import android.app.ProgressDialog.show
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.graphics.drawable.Drawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.cherish.common.R
 import com.cherish.common.widget.dialog.LottieDialogFragment
-import com.jaeger.library.StatusBarUtil
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -23,6 +19,7 @@ abstract class BaseActivity : AppCompatActivity() {
     private val lottieDialogFragment: LottieDialogFragment by lazy {
         LottieDialogFragment()
     }
+
     /**
      * 管理订阅
      */
@@ -36,6 +33,7 @@ abstract class BaseActivity : AppCompatActivity() {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
         setContentView(setContentId())
+        initConfig()
         bindData()
         injectListener()
     }
@@ -50,6 +48,11 @@ abstract class BaseActivity : AppCompatActivity() {
      */
     @LayoutRes
     abstract fun setContentId(): Int
+
+    /**
+     * view 配置
+     */
+    abstract fun initConfig()
 
     /**
      * 绑定数据
@@ -67,26 +70,7 @@ abstract class BaseActivity : AppCompatActivity() {
     protected fun compositeDisposable() = compositeDisposable
 
     companion object {
-        val mContext = this
 
-
-    }
-
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        return when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    override fun onDestroy() {
-        compositeDisposable.clear()
-        super.onDestroy()
     }
 
     /**
@@ -95,7 +79,6 @@ abstract class BaseActivity : AppCompatActivity() {
     fun launchActivity(clazz: Class<out Activity>) {
         val intent = Intent(this, clazz)
         startActivity(intent)
-
     }
 
     /**
@@ -162,5 +145,18 @@ abstract class BaseActivity : AppCompatActivity() {
         lottieDialogFragment.dismiss()
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
+    override fun onDestroy() {
+        compositeDisposable.clear()
+        super.onDestroy()
+    }
 }

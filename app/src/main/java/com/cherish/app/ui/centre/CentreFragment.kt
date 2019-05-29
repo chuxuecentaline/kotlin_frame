@@ -17,19 +17,21 @@ class CentreFragment : BaseFragment() {
         const val TAG = "AccountFragment"
     }
 
-
     override fun setLayoutId() = R.layout.centre_fragment
 
     override fun bindLiveData() {
+        viewModel = ViewModelProviders.of(this).get(CentreViewModel::class.java)
     }
 
-
     override fun initConfigure(view: View) {
-        viewModel = ViewModelProviders.of(this).get(CentreViewModel::class.java)
+
         btn_click.setOnClickListener {
             ARouter.getInstance().build(IntentExtra.Arouter.LOGIN).navigation()
         }
     }
 
+    override fun injectListener() {
+
+    }
 
 }

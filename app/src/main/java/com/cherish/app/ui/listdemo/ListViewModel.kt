@@ -17,12 +17,12 @@ import com.cherish.common.ui.BaseViewModel
  * @version: 2.0
  */
 class ListViewModel : BaseViewModel() {
+
     private var mList = MutableLiveData<List<ListData>>()
     private var error= MutableLiveData<String>()
     private val mGitHubService by lazy {
         ApiCreate.create(ConfigApi::class.java)
     }
-
 
     fun getList(index: Int): MutableLiveData<List<ListData>> {
         list(index)

@@ -8,8 +8,11 @@ import kotlinx.android.synthetic.main.activity_second.*
 import java.util.concurrent.TimeUnit
 
 class SecondActivity : BaseActivity() {
-    override fun setContentId() = R.layout.activity_second
 
+    override fun setContentId() = R.layout.activity_second
+    override fun initConfig() {
+
+    }
     override fun bindData() {
     }
 

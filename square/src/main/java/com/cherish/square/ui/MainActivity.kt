@@ -10,8 +10,13 @@ import com.cherish.square.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), OnItemClickListener<String> {
+
     private lateinit var mAdapter: MainAdapter
     override fun setContentId() = R.layout.activity_main
+
+    override fun initConfig() {
+
+    }
 
     override fun bindData() {
         val paramsHelper = MainParamsHelper()

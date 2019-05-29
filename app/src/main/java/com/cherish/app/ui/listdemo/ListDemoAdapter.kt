@@ -45,6 +45,7 @@ class ListDemoAdapter(private var support: Support) : AbsBaseAdapter<ListWrapper
     }
 
     override fun getItemViewType(position: Int) = mList[position].layoutId()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = factory.createViewHolder(viewType, inflateView(parent, viewType), support)
 
     override fun onBindViewHolder(holder: AbsWrapper.BaseViewHolder, position: Int) {

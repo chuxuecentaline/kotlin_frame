@@ -27,8 +27,12 @@ import kotlinx.android.synthetic.main.activity_login.*
 @Route(path = IntentExtra.Arouter.LOGIN)
 class LoginActivity : BaseActivity() {
     private lateinit var loginViewModel: LoginViewModel
+
     override fun setContentId() = R.layout.activity_login
 
+    override fun initConfig() {
+
+    }
     override fun bindData() {
         loginViewModel = ViewModelProviders.of(this, LoginViewModelFactory())
                 .get(LoginViewModel::class.java)

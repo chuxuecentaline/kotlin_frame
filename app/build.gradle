@@ -18,7 +18,7 @@ android {
         }
     }
     compileSdkVersion build_versions.target_sdk
-    buildToolsVersion build_versions.build_tools
+
     defaultConfig {
         applicationId "com.cherish.app"
         minSdkVersion build_versions.min_sdk

@@ -25,6 +25,7 @@ import com.cherish.common.utils.ToastUtil.Companion.short
  * @version: 2.0
  */
 class ListFragment : SmartRefreshFragment<ListWrapper.ListVisitable>() {
+
     override fun onItemDecoration(context: Context) = DividerItemDecoration(context, LinearLayout.VERTICAL)
 
     private lateinit var viewModel: ListViewModel
@@ -87,6 +88,10 @@ class ListFragment : SmartRefreshFragment<ListWrapper.ListVisitable>() {
                     }
 
                 })
+
+    }
+
+    override fun injectListener() {
 
     }
 

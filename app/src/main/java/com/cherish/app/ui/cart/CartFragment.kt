@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.centre_fragment.*
 
 
 class CartFragment : BaseFragment() {
+
     private lateinit var viewModel: CartViewModel
 
     companion object {
@@ -21,10 +22,10 @@ class CartFragment : BaseFragment() {
     override fun setLayoutId() = com.cherish.app.R.layout.cart_fragment
 
     override fun bindLiveData() {
+        viewModel = ViewModelProviders.of(this).get(CartViewModel::class.java)
     }
 
     override fun initConfigure(view: View) {
-        viewModel = ViewModelProviders.of(this).get(CartViewModel::class.java)
 
         btn_click.setOnClickListener {
             ARouter.getInstance()
@@ -44,6 +45,10 @@ class CartFragment : BaseFragment() {
 
                     })
         }
+    }
+
+    override fun injectListener() {
+
     }
 
 

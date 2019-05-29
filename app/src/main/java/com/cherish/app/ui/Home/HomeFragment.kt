@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
  * 首页
  */
 class HomeFragment : BaseFragment() {
+
     companion object {
         fun newInstance() = HomeFragment()
         const val TAG = "HomeFragment"
@@ -28,14 +29,15 @@ class HomeFragment : BaseFragment() {
 
     override fun initConfigure(view: View) {
 
-        btn_click1.let {
+        btn_click1?.let {
             btn_click1.setOnClickListener {
 
-                startActivity(Intent(activity, ListActivity::class.java))
+                launchActivity(ListActivity::class.java)
             }
         }
-        iv_bg.apply {
+        iv_bg?.apply {
             setOnClickListener {
+
                 launchActivity(SearchHomeActivity::class.java)
             }
         }
@@ -43,5 +45,8 @@ class HomeFragment : BaseFragment() {
 
     }
 
+    override fun injectListener() {
+
+    }
 
 }

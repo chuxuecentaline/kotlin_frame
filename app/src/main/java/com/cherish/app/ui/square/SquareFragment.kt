@@ -22,10 +22,11 @@ class SquareFragment : BaseFragment() {
     override fun setLayoutId() = R.layout.square_fragment
 
     override fun bindLiveData() {
+        viewModel = ViewModelProviders.of(this).get(SquareViewModel::class.java)
     }
 
     override fun initConfigure(view: View) {
-        viewModel = ViewModelProviders.of(this).get(SquareViewModel::class.java)
+
         btn_click.setOnClickListener {
             ARouter.getInstance().build(IntentExtra.Arouter.SCROLLING).navigation(activity, object : NavigationCallback {
                 override fun onLost(postcard: Postcard?) {
@@ -47,5 +48,8 @@ class SquareFragment : BaseFragment() {
         }
     }
 
+    override fun injectListener() {
+
+    }
 
 }

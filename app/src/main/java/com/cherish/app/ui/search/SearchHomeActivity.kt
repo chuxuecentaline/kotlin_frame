@@ -17,25 +17,35 @@ import kotlinx.android.synthetic.main.activity_search_home.*
 class SearchHomeActivity : BaseActivity() {
 
     override fun setContentId() = R.layout.activity_search_home
+
+    override fun initConfig() {
+
+        setSupportActionBar(toolbar)
+        supportActionBar.apply {
+            this?.setHomeButtonEnabled(true)
+        }
+    }
+
     override fun bindData() {
 
     }
 
     override fun injectListener() {
-       /* searchView.setOnSearchListener(object : SearchCallBack {
+        searchView.setOnSearchListener(object : SearchCallBack {
             override fun onSearch(search: String) {
                 ToastUtil.short(search)
             }
 
             override fun onClear() {
+                controlKeyboard(false)
                 ToastUtil.short("clear")
             }
 
-        })*/
+        })
 
     }
 
-/*    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_search, menu)
         return true
     }
@@ -44,10 +54,11 @@ class SearchHomeActivity : BaseActivity() {
         return when (item.itemId) {
             R.id.search -> {
                 searchView.search()
+                controlKeyboard(false)
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }*/
+    }
 
 }

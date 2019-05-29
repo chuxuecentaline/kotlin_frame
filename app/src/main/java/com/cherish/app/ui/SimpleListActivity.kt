@@ -17,6 +17,9 @@ class SimpleListActivity : BaseActivity() {
 
     override fun setContentId() = R.layout.activity_list
 
+    override fun initConfig() {
+
+    }
     override fun bindData() {
         mByItemViewModel = ViewModelProviders.of(this).get(ByItemViewModel::class.java)
         mAdapter = HomeAdapter()

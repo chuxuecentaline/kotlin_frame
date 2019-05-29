@@ -3,10 +3,6 @@ package com.cherish.app
 import com.cherish.common.BaseApplication
 import com.squareup.leakcanary.LeakCanary
 import com.taobao.sophix.SophixManager
-import io.reactivex.Observable
-import io.reactivex.ObservableOnSubscribe
-import io.reactivex.schedulers.Schedulers
-import java.lang.Exception
 
 /**
  * @author: cherish

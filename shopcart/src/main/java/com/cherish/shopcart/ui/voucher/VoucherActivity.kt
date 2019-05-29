@@ -10,7 +10,12 @@ import com.cherish.shopcart.R
  * @version: 2.0
  */
 class VoucherActivity : BaseActivity() {
+
     override fun setContentId() = R.layout.activity_voucher
+
+    override fun initConfig() {
+
+    }
 
     override fun bindData() {
     }

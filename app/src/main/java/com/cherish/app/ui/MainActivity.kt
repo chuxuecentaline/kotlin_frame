@@ -18,7 +18,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : BaseActivity() {
 
     private var fragmentPosition = 0
+
     override fun setContentId() = R.layout.activity_main
+
+    override fun initConfig() {
+
+    }
 
     override fun bindData() {
         updateFragment(0)

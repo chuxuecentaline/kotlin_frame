@@ -17,15 +17,18 @@ import com.cherish.common.widget.dialog.LottieDialogFragment
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseFragment : Fragment() {
+
     private val lottieDialogFragment: LottieDialogFragment by lazy {
         LottieDialogFragment()
     }
+
     /**
      * 订阅管理
      */
     private val compositeDisposable: CompositeDisposable by lazy {
         CompositeDisposable()
     }
+
     private lateinit var mViewModel: BaseViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
@@ -35,8 +38,8 @@ abstract class BaseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         bindLiveData()
         initConfigure(view)
+        injectListener()
     }
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -65,10 +68,10 @@ abstract class BaseFragment : Fragment() {
      */
     abstract fun bindLiveData()
 
-    override fun onDestroyView() {
-        compositeDisposable.clear()
-        super.onDestroyView()
-    }
+    /**
+     * 事件监听
+     */
+    abstract fun injectListener()
 
     /**
      * 无参
@@ -142,8 +145,19 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
+    /**
+     * 取消对话框
+     */
     fun dismissDialog() {
         lottieDialogFragment.dismiss()
+    }
+
+    /**
+     * 销毁订阅
+     */
+    override fun onDestroyView() {
+        compositeDisposable.clear()
+        super.onDestroyView()
     }
 
 }
