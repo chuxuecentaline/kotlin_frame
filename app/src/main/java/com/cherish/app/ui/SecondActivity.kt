@@ -14,6 +14,7 @@ class SecondActivity : BaseActivity() {
 
     }
     override fun bindData() {
+
     }
 
     override fun injectListener() {
