@@ -11,6 +11,7 @@ class SecondActivity : BaseActivity() {
     override fun setContentId() = R.layout.activity_second
 
     override fun bindData() {
+
     }
 
     override fun injectListener() {
