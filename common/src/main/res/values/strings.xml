@@ -7,4 +7,5 @@
     <string name="search_hint">搜索特品或供应端</string>
     <string name="search">搜索</string>
     <string name="tips_search">请输入搜索的内容</string>
+    <string name="noPermission_call">未开通通话权限，请至设置页面</string>
 </resources>

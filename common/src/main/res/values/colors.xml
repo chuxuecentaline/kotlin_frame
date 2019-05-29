@@ -11,4 +11,5 @@
     <color name="colorStatusBar">#757575</color>
     <color name="transparent">#00000000</color>
     <color name="colorBlankPage">#F7F7F7</color>
+    <color name="tab_default">#E9E9E9</color>
 </resources>

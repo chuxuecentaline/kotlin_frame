@@ -20,9 +20,7 @@ class MainAdapter(mList: ArrayList<String>) : SimpleBaseAdapter<String, MainView
 
     }
     override fun onBindItemClickListener(itemView: View, position: Int, bean: String) {
-        itemView.setOnClickListener {
-          mListener.onClick(position, bean)
-        }
+
     }
 }
 

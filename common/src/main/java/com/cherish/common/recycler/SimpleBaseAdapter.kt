@@ -22,6 +22,9 @@ abstract class SimpleBaseAdapter<T, VH : BaseViewHolder<T>>(var mList: ArrayList
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.bindTo(mList[position])
+        holder.itemView.setOnClickListener {
+            mListener.onClick(position, mList[position])
+        }
         onBindItemClickListener(holder.itemView,position,mList[position])
     }
 

@@ -1,18 +1,27 @@
 package com.cherish.common.ui
 
+import android.Manifest
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.graphics.drawable.Drawable
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.cherish.common.R
+import com.cherish.common.utils.ToastUtil
 import com.cherish.common.widget.dialog.LottieDialogFragment
+import com.tbruyelle.rxpermissions2.RxPermissions
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import java.util.*
+import java.util.function.Consumer
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -158,5 +167,29 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onDestroy() {
         compositeDisposable.clear()
         super.onDestroy()
+    }
+
+    /**
+     * 拨打电话
+     */
+    fun callPhone(phone:String){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            RxPermissions(this@BaseActivity).request(Manifest.permission.CALL_PHONE).observeOn(AndroidSchedulers.mainThread())
+                    .subscribe {
+                        if(it){
+                            call(phone)
+                        }else{
+                            ToastUtil.short(getString(R.string.noPermission_call))
+                        }
+                    }
+        }
+
+    }
+
+    private fun call(phone:String) {
+        val intent = Intent(Intent.ACTION_CALL, Uri.parse(String.format(Locale
+                .CHINESE, "tel:%s", phone)))
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
     }
 }
