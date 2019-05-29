@@ -23,7 +23,11 @@ android {
         targetSdkVersion build_versions.target_sdk
         versionCode build_versions.version_code
         versionName build_versions.version_name
-
+        multiDexEnabled true
+        resConfigs "zh-rCN", "xhdpi"
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
@@ -33,11 +37,11 @@ android {
             signingConfig signingConfigs.debug
             ext.enableCrashlytics = false
             useProguard false
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -66,8 +70,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     kapt deps.arouter.compiler
-
-    api 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'//图片选择器
 
     implementation project(path: ':common')
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'

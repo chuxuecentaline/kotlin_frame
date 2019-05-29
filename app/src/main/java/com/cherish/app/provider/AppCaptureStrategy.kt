@@ -1,5 +1,4 @@
-package com.cherish.app.imageload
-
+package com.cherish.app.provider
 import com.cherish.app.BuildConfig
 import com.zhihu.matisse.internal.entity.CaptureStrategy
 import java.util.*

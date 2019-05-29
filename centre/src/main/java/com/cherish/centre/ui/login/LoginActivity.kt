@@ -1,6 +1,7 @@
 package com.cherish.centre.ui.login
 
 import android.app.Activity
+import android.content.Intent
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -23,7 +24,7 @@ import com.cherish.common.utils.IntentExtra
 import com.cherish.common.utils.ToastUtil
 import kotlinx.android.synthetic.main.activity_login.*
 
-@Route(path = IntentExtra.LOGIN)
+@Route(path = IntentExtra.Arouter.LOGIN)
 class LoginActivity : BaseActivity() {
     private lateinit var loginViewModel: LoginViewModel
     override fun setContentId() = R.layout.activity_login
@@ -48,6 +49,7 @@ class LoginActivity : BaseActivity() {
 
         loginViewModel.loginResult.observe(this@LoginActivity, Observer {
             val loginResult = it ?: return@Observer
+            dismissDialog()
 
             loading.visibility = View.GONE
             if (loginResult.error != null) {
@@ -56,8 +58,9 @@ class LoginActivity : BaseActivity() {
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
             }
-            setResult(Activity.RESULT_OK)
-
+            var intent = Intent()
+            intent.putExtra(IntentExtra.SUCCESS,"login Success")
+            setResult(Activity.RESULT_OK, intent)
             //Complete and destroy login activity once successful
             finish()
         })
@@ -92,6 +95,7 @@ class LoginActivity : BaseActivity() {
 
             login.setOnClickListener {
                 loading.visibility = View.VISIBLE
+                loadingDialog()
                 loginViewModel.login(username.text.toString(), password.text.toString())
             }
         }

@@ -14,18 +14,19 @@ import com.cherish.common.utils.IntentExtra
  * @description:拦截器 必须登录成功之后才能进入的页面
  * @date: 2019/5/27 8:45
  * @version: 2.0
+ * fix me 测试拦截，开发按需修改
  */
-@Interceptor(priority = 1,name = IntentExtra.LOGIN_INTERCEPTOR)
-class LoginInterceptor:IInterceptor {
+@Interceptor(priority = 1,name = IntentExtra.Arouter.LOGIN_INTERCEPTOR)
+class LoginInterceptor:IInterceptor{
     lateinit var mContext:Context
 
     override fun init(context: Context?) {
         mContext= context!!
     }
     override fun process(postcard: Postcard?, callback: InterceptorCallback?) {
-        if(postcard?.path == IntentExtra.CART){// 购物车必须先登录
-            ARouter.getInstance().build(IntentExtra.LOGIN).navigation(mContext)
-            callback?.onInterrupt(HandlerException("must be login"))
+
+        if(postcard?.path == IntentExtra.Arouter.CART){// 购物车必须先登录
+            callback?.onInterrupt(null)
         }else{
             // No problem! hand over control to the framework
             callback?.onContinue(postcard)

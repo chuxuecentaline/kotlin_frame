@@ -1,0 +1,11 @@
+<resources>
+    <declare-styleable name="SearchView">
+        <attr name="searchHint" format="string" />
+        <attr name="searchEditColor" format="color" />
+        <attr name="searchEditSize" format="dimension" />
+        <attr name="searchTint" format="color" />
+        <attr name="searchBackground" format="integer" />
+        <attr name="searchDeleteIcon" format="integer" />
+        <attr name="searchDeleteTint" format="color" />
+    </declare-styleable>
+</resources>

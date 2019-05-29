@@ -1,13 +1,18 @@
 package com.cherish.app.ui
 
+import android.app.Activity
+import android.content.Intent
 import androidx.fragment.app.FragmentTransaction
+import com.alibaba.android.arouter.launcher.ARouter
 import com.cherish.app.Home.HomeFragment
 import com.cherish.app.R
-import com.cherish.app.ui.centre.CentreFragment
 import com.cherish.app.ui.cart.CartFragment
+import com.cherish.app.ui.centre.CentreFragment
+import com.cherish.app.ui.city.CityActivity
 import com.cherish.app.ui.square.SquareFragment
 import com.cherish.common.ui.BaseActivity
-import com.taobao.sophix.SophixManager
+import com.cherish.common.utils.IntentExtra
+import com.cherish.common.utils.ToastUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -87,5 +92,20 @@ class MainActivity : BaseActivity() {
             transaction.add(R.id.fl_content, showFragment, tag)
         }
         transaction.commitAllowingStateLoss()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                100 -> {
+                    val extra = data?.getStringExtra(IntentExtra.SUCCESS)
+                    println("$extra")
+                    ARouter.getInstance().build(IntentExtra.Arouter.SCROLLING).navigation()
+
+                }
+
+            }
+        }
     }
 }

@@ -11,17 +11,16 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:expanded="false">
+        android:background="@android:color/transparent">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="?attr/colorPrimary"
-            app:titleEnabled="false"
             android:animateLayoutChanges="true"
+            app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:titleEnabled="false"
             app:toolbarId="@+id/toolbar">
 
             <com.cherish.common.widget.view.head.CustomHeadView
@@ -32,10 +31,10 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@id/toolbar"
                 style="@style/ToolbarStyle"
-                app:layout_collapseMode="pin"
                 android:layout_marginTop="@dimen/spacing_22"
-                app:title=" "
-                app:navigationIcon="@drawable/ic_chevron_left_white" />
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/ic_chevron_left_white"
+                app:title=" " />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>

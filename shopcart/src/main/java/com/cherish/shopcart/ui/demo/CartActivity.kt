@@ -1,5 +1,7 @@
 package com.cherish.shopcart.ui.demo
 
+import android.app.Activity
+import android.content.Intent
 import androidx.core.content.ContextCompat
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.cherish.common.ui.BaseActivity
@@ -9,7 +11,7 @@ import com.cherish.shopcart.R
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_cart.*
 
-@Route(path = IntentExtra.CART)
+@Route(path = IntentExtra.Arouter.CART)
 class CartActivity : BaseActivity() {
     override fun setContentId() = R.layout.activity_cart
 
@@ -26,8 +28,7 @@ class CartActivity : BaseActivity() {
 
     override fun injectListener() {
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show()
         }
     }
 

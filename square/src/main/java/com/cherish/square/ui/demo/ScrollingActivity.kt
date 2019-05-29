@@ -10,7 +10,7 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_scrolling.*
 
 
-@Route(path = IntentExtra.SCROLLING)
+@Route(path = IntentExtra.Arouter.SCROLLING)
 class ScrollingActivity : BaseActivity() {
 
     var list = arrayListOf(

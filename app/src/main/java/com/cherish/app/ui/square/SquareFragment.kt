@@ -27,7 +27,7 @@ class SquareFragment : BaseFragment() {
     override fun initConfigure(view: View) {
         viewModel = ViewModelProviders.of(this).get(SquareViewModel::class.java)
         btn_click.setOnClickListener {
-            ARouter.getInstance().build(IntentExtra.SCROLLING).navigation(activity, object : NavigationCallback {
+            ARouter.getInstance().build(IntentExtra.Arouter.SCROLLING).navigation(activity, object : NavigationCallback {
                 override fun onLost(postcard: Postcard?) {
                 }
 
