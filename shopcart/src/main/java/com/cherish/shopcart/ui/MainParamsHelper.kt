@@ -1,4 +1,4 @@
-package com.cherish.square.ui
+package com.cherish.shopcart.ui
 
 import com.cherish.common.entity.ParamsHelper
 

@@ -32,6 +32,11 @@
   2. CustomHeadView 详情页全屏式头部轮播图
   3. SmartRefreshFragment 封装 预加载页面 空页面 网络错误页面的 相关逻辑，使用适配器的模式，getItemViewType 返回不同的布局id ,实现多布局
   4. searchView 搜索控件 在xml 布局文件中可以设置 背景图片 搜索icon 着色 tint 值 字体大小 颜色 提示hint 等等
+  5.
+  6.
+  7.
+  8
+  9.dialogFragment 弹出框基础封装
 
 
 
