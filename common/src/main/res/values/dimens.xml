@@ -37,6 +37,7 @@
     <dimen name="spacing_350">350dp</dimen>
     <dimen name="spacing_300">300dp</dimen>
     <dimen name="spacing_280">280dp</dimen>
+    <dimen name="spacing_260">260dp</dimen>
     <dimen name="spacing_250">250dp</dimen>
     <dimen name="spacing_240">240dp</dimen>
     <dimen name="spacing_230">230dp</dimen>
@@ -112,6 +113,7 @@
     <dimen name="spacing_2">2dp</dimen>
     <dimen name="spacing_1">1dp</dimen>
     <dimen name="spacing_0">0dp</dimen>
+
 
 
 </resources>

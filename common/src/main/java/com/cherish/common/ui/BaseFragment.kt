@@ -99,38 +99,6 @@ abstract class BaseFragment : Fragment() {
     }
 
     /**
-     * 软键盘开启、关闭
-     */
-    protected fun controlKeyboard(isShow: Boolean) {
-        try {
-
-            val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    ?: return
-            val currentFocus = activity?.currentFocus
-            if (isShow) {
-                if (currentFocus != null) {
-                    //有焦点打开
-                    imm.showSoftInput(currentFocus, 0)
-                } else {
-                    //无焦点打开
-                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
-                }
-            } else {
-                if (currentFocus != null) {
-                    //有焦点关闭
-                    imm.hideSoftInputFromWindow(currentFocus.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
-                } else {
-                    //无焦点关闭
-                    imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
-                }
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-
-    }
-
-    /**
      * 是否还在执行
      */
     protected fun isLoading() = lottieDialogFragment.isVisible

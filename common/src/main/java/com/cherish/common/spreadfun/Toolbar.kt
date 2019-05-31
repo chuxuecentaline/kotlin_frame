@@ -1,9 +1,7 @@
-package com.cherish.common.widget
+package com.cherish.common.spreadfun
 
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import kotlinx.android.synthetic.main.layout_toolbar.*
-import kotlinx.android.synthetic.main.layout_toolbar.view.*
 
 /**
  * @author: cherish

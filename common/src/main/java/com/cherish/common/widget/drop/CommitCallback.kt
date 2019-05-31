@@ -7,5 +7,5 @@ package com.cherish.common.widget.drop
  * @version: 2.0
  */
 interface CommitCallback {
-    fun commit(id:Int)
+    fun commit()
 }

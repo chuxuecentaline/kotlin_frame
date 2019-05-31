@@ -107,35 +107,6 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     /**
-     * 软键盘开启、关闭
-     */
-    protected fun controlKeyboard(isShow: Boolean) {
-        try {
-            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager ?: return
-            if (isShow) {
-                if (currentFocus != null) {
-                    //有焦点打开
-                    imm.showSoftInput(currentFocus, 0)
-                } else {
-                    //无焦点打开
-                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
-                }
-            } else {
-                if (currentFocus != null) {
-                    //有焦点关闭
-                    imm.hideSoftInputFromWindow(currentFocus.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
-                } else {
-                    //无焦点关闭
-                    imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
-                }
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-
-    }
-
-    /**
      * 是否还在执行
      */
     protected fun isLoading() = lottieDialogFragment.isVisible
@@ -172,13 +143,13 @@ abstract class BaseActivity : AppCompatActivity() {
     /**
      * 拨打电话
      */
-    fun callPhone(phone:String){
+    fun callPhone(phone: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             RxPermissions(this@BaseActivity).request(Manifest.permission.CALL_PHONE).observeOn(AndroidSchedulers.mainThread())
                     .subscribe {
-                        if(it){
+                        if (it) {
                             call(phone)
-                        }else{
+                        } else {
                             ToastUtil.short(getString(R.string.noPermission_call))
                         }
                     }
@@ -186,7 +157,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     }
 
-    private fun call(phone:String) {
+    private fun call(phone: String) {
         val intent = Intent(Intent.ACTION_CALL, Uri.parse(String.format(Locale
                 .CHINESE, "tel:%s", phone)))
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

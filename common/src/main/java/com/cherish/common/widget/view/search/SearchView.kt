@@ -13,7 +13,7 @@ import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatEditText
 import com.cherish.common.R
 import com.cherish.common.utils.ToastUtil
-import com.cherish.common.widget.tint
+import com.cherish.common.spreadfun.tint
 import kotlinx.android.synthetic.main.layout_search.view.*
 
 

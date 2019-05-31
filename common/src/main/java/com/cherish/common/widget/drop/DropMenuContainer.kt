@@ -1,11 +1,9 @@
 package com.cherish.common.widget.drop
 
 import android.content.Context
-import android.system.Os.close
 import android.util.AttributeSet
 import android.util.SparseIntArray
 import android.view.View
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
 import com.cherish.common.R
@@ -17,17 +15,17 @@ import java.util.ArrayList
  * @date: 2019/5/30 11:49
  * @version: 2.0
  */
+interface OnHideCallback {
+    fun hide()
+}
+
 class DropMenuContainer(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : FrameLayout(context, attrs, defStyleAttr), CommitCallback {
 
     private val mMenuContentViews = ArrayList<IMenuContent>(4)
     private val mSparseIntArray = SparseIntArray(4)
     private var mCurrentPosition = -1//当前打开的位置
     private var openMenu: Boolean = false//菜单状态
-    private var mPosition: Int = 0
-
-    init {
-
-    }
+    private lateinit var mCallBack:OnHideCallback
 
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0) {
@@ -35,6 +33,7 @@ class DropMenuContainer(context: Context, attrs: AttributeSet?, defStyleAttr: In
         setBackgroundResource(R.color.colorDropMenuMask)
         setOnClickListener {
             cancel()
+
         }
     }
 
@@ -48,7 +47,7 @@ class DropMenuContainer(context: Context, attrs: AttributeSet?, defStyleAttr: In
                 inAnimal()
                 visibility = View.VISIBLE
                 getChildAt(mCurrentPosition).apply {
-                    animation = AnimationUtils.loadAnimation(context, R.anim.in_drop_menu)
+                    animation = AnimationUtils.loadAnimation(context, R.anim.menu_child_in)
                     visibility = View.VISIBLE
                 }
             }
@@ -62,21 +61,21 @@ class DropMenuContainer(context: Context, attrs: AttributeSet?, defStyleAttr: In
                         when {
                             mCurrentPosition < showPosition -> {
                                 getChildAt(mCurrentPosition).apply {
-                                    animation = AnimationUtils.loadAnimation(context, R.anim.out_drop_menu)
+                                    animation = AnimationUtils.loadAnimation(context, R.anim.out_left_child_drop_menu)
                                     visibility = View.GONE
                                 }
                                 getChildAt(showPosition).apply {
-                                    animation = AnimationUtils.loadAnimation(context, R.anim.in_drop_menu)
+                                    animation = AnimationUtils.loadAnimation(context, R.anim.in_left_child_drop_menu)
                                     visibility = View.VISIBLE
                                 }
                             }
                             else -> {
                                 getChildAt(mCurrentPosition).apply {
-                                    animation = AnimationUtils.loadAnimation(context, R.anim.out_drop_menu)
+                                    animation = AnimationUtils.loadAnimation(context, R.anim.out_right_child_drop_menu)
                                     visibility = View.GONE
                                 }
                                 getChildAt(showPosition).apply {
-                                    animation = AnimationUtils.loadAnimation(context, R.anim.in_drop_menu)
+                                    animation = AnimationUtils.loadAnimation(context, R.anim.in_right_child_drop_menu)
                                     visibility = View.VISIBLE
                                 }
                             }
@@ -107,7 +106,7 @@ class DropMenuContainer(context: Context, attrs: AttributeSet?, defStyleAttr: In
      * 外部消失
      */
     private fun cancel() {
-        outAnimal()
+        commit()
     }
 
     /**
@@ -115,18 +114,6 @@ class DropMenuContainer(context: Context, attrs: AttributeSet?, defStyleAttr: In
      */
     private fun inAnimal() {
         animation = AnimationUtils.loadAnimation(context, R.anim.in_drop_menu)
-        animation.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationRepeat(animation: Animation?) {
-            }
-
-            override fun onAnimationEnd(animation: Animation?) {
-                visibility = View.VISIBLE
-            }
-
-            override fun onAnimationStart(animation: Animation?) {
-            }
-
-        })
     }
 
     /**
@@ -134,24 +121,12 @@ class DropMenuContainer(context: Context, attrs: AttributeSet?, defStyleAttr: In
      */
     private fun outAnimal() {
         animation = AnimationUtils.loadAnimation(context, R.anim.out_drop_menu)
-        animation.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationRepeat(animation: Animation?) {
-            }
-
-            override fun onAnimationEnd(animation: Animation?) {
-                visibility = View.GONE
-            }
-
-            override fun onAnimationStart(animation: Animation?) {
-            }
-
-        })
     }
 
     private fun close() {
-        animation = AnimationUtils.loadAnimation(context, R.anim.out_drop_menu)
+        outAnimal()
         visibility = View.GONE
-        if (mCurrentPosition in 0..3) {
+        if (mCurrentPosition in 0..childCount) {
             mMenuContentViews[mCurrentPosition].gone()
             getChildAt(mCurrentPosition)?.apply {
                 animation = AnimationUtils.loadAnimation(context, R.anim.out_drop_menu)
@@ -159,10 +134,23 @@ class DropMenuContainer(context: Context, attrs: AttributeSet?, defStyleAttr: In
             }
         }
         mCurrentPosition = -1
+        mCallBack.hide()
     }
 
-    override fun commit(id: Int) {
 
+    /**
+     * 提交
+     */
+    override fun commit() {
+        close()
+
+    }
+
+    /**
+     * 隐藏软键盘
+     */
+    fun hideKeyboard(callback: OnHideCallback){
+        mCallBack=callback
     }
 
 

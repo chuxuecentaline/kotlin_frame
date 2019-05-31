@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import com.cherish.common.R
 import com.cherish.common.recycler.BaseViewHolder
 import com.cherish.common.recycler.SimpleBaseAdapter
-import com.cherish.common.widget.tint
+import com.cherish.common.spreadfun.tint
 
 /**
  * @author: cherish

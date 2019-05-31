@@ -5,7 +5,7 @@ import android.view.MenuItem
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.cherish.common.ui.BaseActivity
 import com.cherish.common.utils.IntentExtra
-import com.cherish.common.widget.applyToolBar
+import com.cherish.common.spreadfun.applyToolBar
 import com.cherish.square.R
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_scrolling.*

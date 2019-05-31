@@ -25,7 +25,7 @@ abstract class SimpleBaseAdapter<T, VH : BaseViewHolder<T>>(var mList: ArrayList
         holder.itemView.setOnClickListener {
             mListener.onClick(position, mList[position])
         }
-        onBindItemClickListener(holder.itemView,position,mList[position])
+        onBindItemClickListener(holder.itemView, position, mList[position])
     }
 
     /**
@@ -42,11 +42,13 @@ abstract class SimpleBaseAdapter<T, VH : BaseViewHolder<T>>(var mList: ArrayList
     fun loadMoreData(list: ArrayList<T>) {
         val size = mList.size
         mList.addAll(list)
-        notifyItemMoved(size, mList.size)
+        notifyItemRangeChanged(size, mList.size)
     }
 
     abstract fun initViewHolder(parent: ViewGroup, viewType: Int): VH
-    abstract fun onBindItemClickListener(itemView: View,position: Int,bean: T)
+
+    abstract fun onBindItemClickListener(itemView: View, position: Int, bean: T)
+
     fun setOnItemClickListener(listener: OnItemClickListener<T>) {
         mListener = listener
     }

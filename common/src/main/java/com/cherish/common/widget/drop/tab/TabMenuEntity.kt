@@ -8,4 +8,4 @@ import androidx.annotation.DrawableRes
  * @date: 2019/5/30 14:06
  * @version: 2.0
  */
-data class TabMenuEntity(val title: String, @DrawableRes val icon: Int? = null, var isSelect: Boolean = false)
+data class TabMenuEntity(var title: String, @DrawableRes val icon: Int? = null, var isSelect: Boolean = false)

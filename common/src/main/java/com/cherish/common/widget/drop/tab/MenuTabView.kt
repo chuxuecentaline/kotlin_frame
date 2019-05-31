@@ -21,28 +21,22 @@ class MenuTabView constructor(context: Context, attrs: AttributeSet? = null, def
 
     private var mCurrentPosition = 0
 
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0){
-
-
-    }
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 
     /**
-     *
+     *初始化
      */
     fun initAdapter(size: Int, callback: OnMenuItemClickListener) {
 
         mAdapter = MenuTabAdapter()
         mAdapter.setOnItemClickListener(object : OnItemClickListener<TabMenuEntity> {
             override fun onClick(position: Int, data: TabMenuEntity) {
-                if (mCurrentPosition != position) {
-                    mAdapter.mList[mCurrentPosition].isSelect = false
-                    mAdapter.notifyItemChanged(mCurrentPosition)
-                    mAdapter.mList[position].isSelect = true
-                    mAdapter.notifyItemChanged(position)
-                    mCurrentPosition = position
-                    callback.onclick(position)
-
-                }
+                mAdapter.mList[mCurrentPosition].isSelect = false
+                mAdapter.notifyItemChanged(mCurrentPosition)
+                mAdapter.mList[position].isSelect = true
+                mAdapter.notifyItemChanged(position)
+                mCurrentPosition = position
+                callback.onclick(position)
 
             }
 
@@ -55,9 +49,16 @@ class MenuTabView constructor(context: Context, attrs: AttributeSet? = null, def
     /**
      * 数据
      */
-    fun appTitles(list: ArrayList<TabMenuEntity>) {
+    fun applyTitles(list: ArrayList<TabMenuEntity>) {
         mAdapter.setData(list)
     }
 
+    /**
+     * 重置
+     */
+    fun applyTitle(position :Int,title:String) {
+        mAdapter.mList[position].title=title
+        mAdapter.notifyItemChanged(position)
+    }
 
 }

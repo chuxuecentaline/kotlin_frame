@@ -24,33 +24,36 @@
                 app:searchHint="@string/search_hint" />
         </androidx.appcompat.widget.Toolbar>
 
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
         <com.cherish.common.widget.drop.tab.MenuTabView
             android:id="@+id/menu_tab"
             android:layout_width="match_parent"
             android:layout_height="@dimen/spacing_50"
             android:background="@color/white" />
 
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <fragment
-            android:id="@+id/listFragment"
-            android:name="com.cherish.app.ui.listdemo.ListFragment"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
 
-        <com.cherish.common.widget.drop.DropMenuContainer
-            android:id="@+id/drop_menu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            <fragment
+                android:id="@+id/listFragment"
+                android:name="com.cherish.app.ui.listdemo.ListFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-    </FrameLayout>
+            <com.cherish.common.widget.drop.DropMenuContainer
+                android:id="@+id/drop_menu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
+        </FrameLayout>
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

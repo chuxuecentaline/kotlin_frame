@@ -1,7 +1,6 @@
-package com.cherish.common.widget
+package com.cherish.common.spreadfun
 
 import androidx.annotation.ColorInt
-import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat

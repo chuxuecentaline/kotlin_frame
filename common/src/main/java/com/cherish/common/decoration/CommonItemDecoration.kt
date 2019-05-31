@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.cherish.common.R
 
@@ -21,7 +22,9 @@ class CommonItemDecoration(context: Context) : RecyclerView.ItemDecoration() {
     }
 
     init {
-        mPaint.color = Color.parseColor("#333333")
+        mPaint.color = ContextCompat.getColor(context,R.color.material_grey_100)
+        mPaint.isAntiAlias=true
+        mPaint.isDither=true
     }
 
 

@@ -12,4 +12,7 @@
     <string name="sales_priority">销量优先</string>
     <string name="list">列表</string>
     <string name="filtrate">筛选</string>
+    <string name="price_range">价格区间(元)</string>
+    <string name="reset">重置</string>
+    <string name="finish">完成</string>
 </resources>

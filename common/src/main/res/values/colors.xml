@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#E92942</color>
     <color name="colorPrimaryDark">#E92942</color>
     <color name="colorAccent">#F7105C</color>
@@ -12,5 +12,5 @@
     <color name="transparent">#00000000</color>
     <color name="colorBlankPage">#F7F7F7</color>
     <color name="tab_default">#E9E9E9</color>
-    <color name="colorDropMenuMask">#20000000</color>
+    <color name="colorDropMenuMask" tools:ignore="MissingDefaultResource">#80000000</color>
 </resources>

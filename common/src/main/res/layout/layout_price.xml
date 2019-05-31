@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/vv"
+        android:layout_width="@dimen/spacing_300"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_pre_money"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_24"
+        android:layout_marginEnd="@dimen/spacing_24"
+        android:inputType="number"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/vv"
+        app:layout_constraintRight_toLeftOf="@id/edt_last_money"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="___"
+        android:textColor="@color/color_333333"
+        app:layout_constraintBottom_toTopOf="@id/edt_pre_money"
+        app:layout_constraintLeft_toLeftOf="@id/vv"
+        app:layout_constraintRight_toRightOf="@id/vv" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_last_money"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_24"
+        android:layout_marginEnd="@dimen/spacing_24"
+        android:inputType="number"
+        android:selectAllOnFocus="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/edt_pre_money"
+        app:layout_constraintRight_toRightOf="@id/vv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_60"
+        android:text="@string/price_range"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/font_16"
+        app:layout_constraintBottom_toTopOf="@id/edt_pre_money"
+        app:layout_constraintLeft_toLeftOf="@id/edt_pre_money" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/atv_reset"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/spacing_50"
+        android:background="@drawable/bg_border_white"
+        android:gravity="center"
+        android:text="@string/reset"
+        android:textColor="@color/color_333333"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/vv"
+        app:layout_constraintRight_toLeftOf="@id/atv_finish" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/atv_finish"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/spacing_50"
+        android:background="@drawable/bg_red"
+        android:gravity="center"
+        android:text="@string/finish"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/atv_reset"
+        app:layout_constraintRight_toRightOf="@id/vv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
