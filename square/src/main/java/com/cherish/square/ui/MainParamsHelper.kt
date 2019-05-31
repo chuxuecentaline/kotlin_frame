@@ -10,6 +10,6 @@ import com.cherish.common.entity.ParamsHelper
  */
 class MainParamsHelper : ParamsHelper<ArrayList<String>>(arrayListOf()) {
     init {
-        resource = arrayListOf("商品信息合约列表", "普通信息合约列表", "信息合约管理")
+        resource = arrayListOf("商品信息合约列表", "普通信息合约列表", "信息合约管理","服务端信息合约管理")
     }
 }

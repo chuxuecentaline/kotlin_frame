@@ -2,6 +2,7 @@ package com.cherish.common.utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.cherish.common.BaseApplication
 import com.cherish.common.utils.SharePreUtils.preferences
 
 
@@ -14,29 +15,41 @@ import com.cherish.common.utils.SharePreUtils.preferences
 object SharePreUtils {
 
     private const val SP_NAME = "SP_NAME"
-
-    fun preferences(context: Context): SharedPreferences = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE)
-
-    fun put(context: Context, key: String, value: Int) {
-        preferences(context).edit().putInt(key, value)
+    private lateinit var mContext: Context
+    fun init(context: Context) {
+        mContext = context
     }
 
-    fun getInt(context: Context, key: String, defValue: Int = 0) = preferences(context).getInt(key, defValue)
-
-    fun put(context: Context, key: String, value: String?) {
-        preferences(context).edit().putString(key, value)
+    val preferences: SharedPreferences by lazy {
+        mContext.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE)
     }
 
-    fun getString(context: Context, key: String, defValue: String? = ""): String? =
-            preferences(context).getString(key, defValue)
-
-
-    fun put(context: Context, key: String, value: Boolean) {
-        preferences(context).edit().putBoolean(key, value)
+    fun put(key: String, value: Int) {
+        preferences.edit().putInt(key, value).commit()
     }
 
-    fun getBoolean(context: Context, key: String, defValue: Boolean = false) =
-            preferences(context).getBoolean(key, defValue)
+    fun getInt(key: String, defValue: Int = 0) = preferences.getInt(key, defValue)
 
+    fun put(key: String, value: String?) {
+        preferences.edit().putString(key, value).commit()
+    }
+
+    fun getString(key: String, defValue: String? = ""): String? =
+            preferences.getString(key, defValue)
+
+
+    fun put(key: String, value: Boolean) {
+        preferences.edit().putBoolean(key, value).commit()
+    }
+
+    fun getBoolean(key: String, defValue: Boolean = false) =
+            preferences.getBoolean(key, defValue)
+
+    /**
+     * 清除所有的数据
+     */
+    fun clear() {
+        preferences.edit().clear()
+    }
 }
     

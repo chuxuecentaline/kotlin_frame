@@ -1,7 +1,10 @@
 package com.cherish.common.recycler
 
 import android.view.View
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.cherish.common.R
 
 /**
  * @author: cherish
@@ -17,6 +20,12 @@ abstract class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemV
     abstract fun findView(itemView: View)
 
     abstract fun bindTo(bean: T)
+    /**
+     * 颜色
+     */
+    fun color(@ColorRes id: Int): Int {
+        return ContextCompat.getColor(itemView.context, id)
+    }
 
 
 }

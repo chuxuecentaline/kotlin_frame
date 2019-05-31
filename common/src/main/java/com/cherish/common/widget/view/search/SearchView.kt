@@ -9,14 +9,11 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatEditText
-import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
 import com.cherish.common.R
 import com.cherish.common.utils.ToastUtil
+import com.cherish.common.widget.tint
 import kotlinx.android.synthetic.main.layout_search.view.*
 
 
@@ -65,7 +62,7 @@ class SearchView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : Fr
         /**
          * 搜索icon 颜色 tint
          */
-        tint(aiv_icon, R.drawable.ic_search_black, _searchTint)
+        aiv_icon.tint(aiv_icon, R.drawable.ic_search_black, _searchTint)
         editStyle(aet_content)
         background(ll_root, _background)
 
@@ -102,15 +99,7 @@ class SearchView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : Fr
         }
     }
 
-    /**
-     * 设置icon  tint 着色
-     */
-    private fun tint(imageView: AppCompatImageView?, @DrawableRes icon: Int, @ColorInt color: Int) {
-        val drawable = ContextCompat.getDrawable(context, icon)
-        drawable?.let { DrawableCompat.setTint(it, color) }
-        imageView?.setImageDrawable(drawable)
 
-    }
 
     /**
      * 设置search 背景

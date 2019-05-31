@@ -7,5 +7,5 @@ package com.cherish.common.widget.drop
  * @version: 2.0
  */
 interface ConvertEntity {
-    fun  apply(list:ArrayList<CategoryEntity>)
+    fun  apply(list:ArrayList<MenuEntity>)
 }

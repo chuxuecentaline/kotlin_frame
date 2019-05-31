@@ -6,4 +6,4 @@ package com.cherish.common.widget.drop
  * @date: 2019/5/29 16:35
  * @version: 2.0
  */
-data class CategoryEntity(val id: Int, val title: String, var isSelected: Boolean)
+data class MenuEntity(val id: Int, val title: String, var isSelected: Boolean=false)

@@ -12,6 +12,14 @@ object IntentExtra {
     const val PARAMS: String = "PARAMS"
     const val SUCCESS: String = "SUCCESS"
     const val PATH: String = "PATH"
+
+    /**
+     * SharedPreferences 相关
+     */
+    object SP {
+        const val LOGIN_STATUS = "LOGIN_STATUS"
+    }
+
     /**
      * 所有路由相关
      */

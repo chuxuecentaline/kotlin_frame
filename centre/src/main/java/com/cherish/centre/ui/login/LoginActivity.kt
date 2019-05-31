@@ -21,6 +21,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.cherish.centre.R
 import com.cherish.common.ui.BaseActivity
 import com.cherish.common.utils.IntentExtra
+import com.cherish.common.utils.SharePreUtils
 import com.cherish.common.utils.ToastUtil
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -54,7 +55,7 @@ class LoginActivity : BaseActivity() {
         loginViewModel.loginResult.observe(this@LoginActivity, Observer {
             val loginResult = it ?: return@Observer
             dismissDialog()
-
+            SharePreUtils.put(IntentExtra.SP.LOGIN_STATUS,true)
             loading.visibility = View.GONE
             if (loginResult.error != null) {
                 showLoginFailed(loginResult.error)

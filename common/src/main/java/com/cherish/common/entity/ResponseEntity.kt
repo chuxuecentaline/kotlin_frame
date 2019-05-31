@@ -4,7 +4,7 @@ import com.squareup.moshi.JsonClass
 
 /**
  * @author: cherish
- * @description:
+ * @description: Response基类
  * @date: 2019/5/10 15:18
  * @version: 2.0
  */

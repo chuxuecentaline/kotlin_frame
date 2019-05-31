@@ -8,6 +8,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.cherish.common.api.ApiCreate
 import com.cherish.common.picengine.glide.OkHttpClient4Glide
 import com.cherish.common.room.AppDataBase
+import com.cherish.common.utils.SharePreUtils
 import com.cherish.common.utils.ToastUtil
 import com.taobao.sophix.SophixManager
 import me.jessyan.autosize.AutoSizeConfig
@@ -31,6 +32,10 @@ abstract class BaseApplication : Application() {
          * toast
          */
         ToastUtil.init(this)
+        /**
+         * SharedPreferences
+         */
+        SharePreUtils.init(this)
         /**
          * 数据库
          */

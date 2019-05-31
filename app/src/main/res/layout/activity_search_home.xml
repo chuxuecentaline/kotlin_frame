@@ -24,14 +24,33 @@
                 app:searchHint="@string/search_hint" />
         </androidx.appcompat.widget.Toolbar>
 
+        <com.cherish.common.widget.drop.tab.MenuTabView
+            android:id="@+id/menu_tab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_50"
+            android:background="@color/white" />
+
+
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    </androidx.core.widget.NestedScrollView>
+        <fragment
+            android:id="@+id/listFragment"
+            android:name="com.cherish.app.ui.listdemo.ListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.cherish.common.widget.drop.DropMenuContainer
+            android:id="@+id/drop_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

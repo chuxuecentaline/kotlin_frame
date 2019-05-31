@@ -23,8 +23,11 @@
  3.  图片加载使用Glide ,可以直接使用SimpleImageLoad ，如不满足条件，可在同级目录下自行定义
  4.  数据库使用google 官方的room ,支持响应式编程，除 返回Flowable 相关字段，其他 增 删 改 均在Server 执行耗时操作，可参考 UserService
  5.  aRouter 阿里的跨模块页面跳转，相关的使用连接 https://github.com/alibaba/ARouter
+     相关页面必须登录才能进入 使用Arouter 的拦截器
  6.  rxpermissions 权限申请
- 7.  matisse 知乎 图片选择器
+ 7.  matisse 知乎 图片选择器 https://github.com/zhihu/Matisse
+ 8.  今日头条适配 https://www.wanandroid.com/blog/show/2343
+ 9.  图片选择器   https://github.com/zhihu/Matisse
 
 
   自定义控件

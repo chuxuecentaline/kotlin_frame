@@ -63,8 +63,6 @@ dependencies {
     api deps.lifecycle.extensions
     api deps.paging_ktx
     api deps.kotlin.stdlib
-    api deps.rxjava2
-    api deps.rx_android
     api deps.retrofit.runtime
     api deps.retrofit.adapter
     api deps.retrofit.adapter_moshi
@@ -78,6 +76,7 @@ dependencies {
     api deps.rxbinding.appcompat
     api deps.hotfix.runtime
     api deps.rxpermissions.runtime
+    api deps.moshi.runtime
 
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.atsl.rules
@@ -95,7 +94,6 @@ dependencies {
 
     api 'com.jaeger.statusbarutil:library:1.5.1'//状态栏
     api 'com.airbnb.android:lottie:2.5.1'// 预加载闪屏动画
-    api 'com.squareup.moshi:moshi-kotlin:1.8.0'//moshi 数据解析器相对于Gson 来说更高效
     api 'me.jessyan:autosize:1.1.2'//布局适配
     api 'com.youth.banner:banner:1.4.10'//轮播图
     api 'com.github.hackware1993:MagicIndicator:1.5.0'//ViewPager 指示器

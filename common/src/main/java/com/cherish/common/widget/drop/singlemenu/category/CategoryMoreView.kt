@@ -1,4 +1,4 @@
-package com.cherish.common.widget.drop.singlemenu
+package com.cherish.common.widget.drop.singlemenu.category
 
 import android.content.Context
 import android.util.AttributeSet
@@ -10,11 +10,11 @@ import com.cherish.common.R
 import com.cherish.common.annotation.QuitEvent
 import com.cherish.common.recycler.OnItemClickListener
 import com.cherish.common.rxJava.QuitTransformer
-import com.cherish.common.widget.drop.CategoryEntity
+import com.cherish.common.widget.drop.MenuEntity
 import com.cherish.common.widget.drop.ConvertEntity
 import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
-import kotlinx.android.synthetic.main.layoout_category_more.view.*
+import kotlinx.android.synthetic.main.layout_category_more.view.*
 
 /**
  * @author: cherish
@@ -22,17 +22,18 @@ import kotlinx.android.synthetic.main.layoout_category_more.view.*
  * @date: 2019/5/29 15:36
  * @version: 2.0
  */
-class CategoryMoreContainer(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs), ConvertEntity {
+class CategoryMoreView(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs), ConvertEntity {
 
     private lateinit var mAdapter: MoreAdapter
     private var mCurrentPosition = 0
+
     private val subject: BehaviorSubject<Int> by lazy {
         BehaviorSubject.create<Int>()
     }
 
     init {
 
-        View.inflate(context, R.layout.layoout_category_more, this)
+        View.inflate(context, R.layout.layout_category_more, this)
     }
 
     constructor(context: Context) : this(context, null)
@@ -43,6 +44,7 @@ class CategoryMoreContainer(context: Context, attrs: AttributeSet?) : FrameLayou
         super.onFinishInflate()
 
         initConfig()
+
     }
 
     private fun initConfig() {
@@ -51,14 +53,15 @@ class CategoryMoreContainer(context: Context, attrs: AttributeSet?) : FrameLayou
             layoutManager = GridLayoutManager(context, 4)
             adapter = mAdapter
         }
-        mAdapter.setOnItemClickListener(object : OnItemClickListener<CategoryEntity> {
-            override fun onClick(position: Int, data: CategoryEntity) {
+        mAdapter.setOnItemClickListener(object : OnItemClickListener<MenuEntity> {
+            override fun onClick(position: Int, data: MenuEntity) {
                 if (mCurrentPosition != position) {
                     mAdapter.mList[mCurrentPosition].isSelected = false
                     mAdapter.notifyItemChanged(mCurrentPosition)
                     mAdapter.mList[position].isSelected = true
                     mAdapter.notifyItemChanged(position)
                     mCurrentPosition = position
+                    subject.onNext(mAdapter.mList[position].id)
                 }
             }
 
@@ -66,7 +69,10 @@ class CategoryMoreContainer(context: Context, attrs: AttributeSet?) : FrameLayou
 
     }
 
-    override fun apply(list: ArrayList<CategoryEntity>) {
+    /**
+     * 数据重构
+     */
+    override fun apply(list: ArrayList<MenuEntity>) {
         mAdapter.setData(list)
     }
 
@@ -76,16 +82,6 @@ class CategoryMoreContainer(context: Context, attrs: AttributeSet?) : FrameLayou
     fun create(): Observable<Int> {
         return subject
     }
-
-    /**
-     * 进入动画
-     */
-
-
-
-    /**
-     * 退出动画
-     */
 
     /**
      * 销毁
