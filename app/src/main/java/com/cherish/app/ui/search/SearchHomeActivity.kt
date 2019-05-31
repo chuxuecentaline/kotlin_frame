@@ -40,15 +40,15 @@ class SearchHomeActivity : BaseActivity() {
     private fun applyMenu() {
 
         val menuView = SimpleMenuView(this)
-        menuView.apply {
-            initAdapter(object : OnResultCallback {
-                override fun result(entity: MenuEntity) {
-                    menu_tab.applyTitle(0, entity.title)
-                    //todo 接口请求
-                    ToastUtil.short("点击${entity.id}")
-                }
+        menuView.initAdapter(object : OnResultCallback {
+            override fun result(entity: MenuEntity) {
+                menu_tab.applyTitle(0, entity.title)
+                //todo 接口请求
+                ToastUtil.short("点击${entity.id}")
+            }
 
-            })
+        })
+        menuView.apply {
             loadData(SearchParamsHelper().list)
         }
         val categoryMoreView = CategoryMoreView(this)
