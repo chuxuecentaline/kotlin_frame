@@ -8,10 +8,6 @@
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
 # class:
--keepclassmembers class fqcn.of.javascript.interface.for.webview {
-   public *;
-}
-
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
@@ -23,7 +19,7 @@
 -dontusemixedcaseclassnames
 -dontwarn javax.annotation.**
 -dontwarn javax.inject.**
--keep class com.centanet.fangyouquan.data.**{*;}
+-keep class com.aurora.common.entity.**{*;}
 ##Kotlin
 -keepnames class kotlinx.coroutines.internal.MainDispatcherFactory {}
 -keepnames class kotlinx.coroutines.CoroutineExceptionHandler {}
@@ -153,10 +149,10 @@
 #防止inline
 -dontoptimize
 
--keepclassmembers class system.App {
+-keepclassmembers class com.aurora.system.App {
     public <init>();
 }
--keepclassmembers class aurora.common.BaseApplication {
+-keepclassmembers class com.aurora.common.BaseApplication {
     public <init>();
 }
 # 如果不使用android.support.annotation.Keep则需加上此行
