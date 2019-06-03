@@ -10,7 +10,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.cherish.app.ui.listdemo.ListFragment"
+        android:name="com.aurora.system.ui.listdemo.ListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

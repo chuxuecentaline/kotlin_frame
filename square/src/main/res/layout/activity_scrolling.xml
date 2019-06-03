@@ -23,7 +23,7 @@
             app:titleEnabled="false"
             app:toolbarId="@+id/toolbar">
 
-            <com.cherish.common.widget.view.head.CustomHeadView
+            <com.aurora.common.widget.view.head.CustomHeadView
                 android:id="@+id/customHeadView"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/spacing_280" />

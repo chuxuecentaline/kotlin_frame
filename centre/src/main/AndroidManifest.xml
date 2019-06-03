@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cherish.centre">
+    package="com.aurora.centre">
 
     <application>
-        <activity android:name=".ui.login.LoginActivity"></activity>
+        <activity android:name="com.aurora.centre.ui.login.LoginActivity"></activity>
     </application>
 
 </manifest>

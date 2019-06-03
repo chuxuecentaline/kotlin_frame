@@ -17,7 +17,7 @@ android {
     defaultConfig {
 
         if (moduleDev.toBoolean()) {
-            applicationId "com.cherish.shopcart"
+            applicationId "com.aurora.shopcart"
         }
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk

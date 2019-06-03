@@ -17,7 +17,7 @@ android {
     compileSdkVersion build_versions.target_sdk
     defaultConfig {
         if (moduleDev.toBoolean()) {
-            applicationId "com.cherish.centre"
+            applicationId "com.aurora.centre"
         }
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk

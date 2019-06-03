@@ -19,7 +19,7 @@ android {
     defaultConfig {
 
         if (moduleDev.toBoolean()) {
-            applicationId "com.cherish.square"
+            applicationId "com.aurora.square"
         }
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk

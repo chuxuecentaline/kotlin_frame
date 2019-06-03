@@ -153,12 +153,12 @@
 #防止inline
 -dontoptimize
 
--keepclassmembers class com.cherish.app.App {
+-keepclassmembers class system.App {
     public <init>();
 }
--keepclassmembers class com.cherish.common.BaseApplication {
+-keepclassmembers class aurora.common.BaseApplication {
     public <init>();
 }
 # 如果不使用android.support.annotation.Keep则需加上此行
-#-keep class com.cherish.app.SophixStubApplication$RealApplicationStub
+#-keep class systemtem.SophixStubApplication$RealApplicationStub
 

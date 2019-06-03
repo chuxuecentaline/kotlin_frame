@@ -17,7 +17,7 @@
             app:navigationIcon="@drawable/ic_chevron_left_white"
             app:title=" ">
 
-            <com.cherish.common.widget.view.search.SearchView
+            <com.aurora.common.widget.view.search.SearchView
                 android:id="@+id/searchView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <com.cherish.common.widget.drop.tab.MenuTabView
+        <com.aurora.common.widget.drop.tab.MenuTabView
             android:id="@+id/menu_tab"
             android:layout_width="match_parent"
             android:layout_height="@dimen/spacing_50"
@@ -44,11 +44,11 @@
 
             <fragment
                 android:id="@+id/listFragment"
-                android:name="com.cherish.app.ui.listdemo.ListFragment"
+                android:name="com.aurora.system.ui.listdemo.ListFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-            <com.cherish.common.widget.drop.DropMenuContainer
+            <com.aurora.common.widget.drop.DropMenuContainer
                 android:id="@+id/drop_menu"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

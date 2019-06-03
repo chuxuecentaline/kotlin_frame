@@ -20,7 +20,7 @@ android {
     compileSdkVersion build_versions.target_sdk
 
     defaultConfig {
-        applicationId "com.cherish.app"
+        applicationId "com.aurora.system"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode build_versions.version_code
