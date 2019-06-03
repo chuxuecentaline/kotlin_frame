@@ -14,6 +14,7 @@ import com.cherish.common.R
  * @version: 2.0
  */
 class ShareDialogFragment(list: ArrayList<String>, override var TAG: String="ShareDialogFragment") : BaseDialogFragment<String>(list) {
+
     override fun setLayoutId()=R.layout.dialog_share
 
     override fun bindSource(view: View?, list: ArrayList<String>) {

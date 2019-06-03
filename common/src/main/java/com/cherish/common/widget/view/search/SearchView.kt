@@ -12,6 +12,7 @@ import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatEditText
 import com.cherish.common.R
+import com.cherish.common.spreadfun.afterTextChanged
 import com.cherish.common.utils.ToastUtil
 import com.cherish.common.spreadfun.tint
 import kotlinx.android.synthetic.main.layout_search.view.*
@@ -132,17 +133,4 @@ class SearchView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : Fr
 
 }
 
-/**
- * 扩展函数
- */
-private fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
-    this.addTextChangedListener(object : TextWatcher {
-        override fun afterTextChanged(editable: Editable?) {
-            afterTextChanged.invoke(editable.toString())
-        }
 
-        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-
-        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
-    })
-}

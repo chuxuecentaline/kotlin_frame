@@ -51,6 +51,7 @@ class PriceMenuView(context: Context, attrs: AttributeSet?) : FrameLayout(contex
                     mListener.result(edt_pre_money.text.toString(), edt_last_money.text.toString())
                     mCallback.commit()
                 }
+        vv.setOnClickListener {  }
     }
 
     override fun loadData(temp: ArrayList<MenuEntity>) {
